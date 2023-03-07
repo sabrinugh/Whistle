@@ -15,5 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Test Connection
         // FirebaseDatabase.getInstance().getReference().child("Test").setValue("abcd");
+        // Test Connection
+
     }
 }
