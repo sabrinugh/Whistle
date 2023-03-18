@@ -11,6 +11,8 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
 
         logout = findViewById(R.id.logout);
         delete = findViewById(R.id.delete);
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
                 FirebaseUser currentuser = FirebaseAuth.getInstance().getCurrentUser();
                 FirebaseAuth.getInstance().signOut();
                 currentuser.delete();
+
+                CollectionReference currentProfile = db.collection("Users");
+                currentProfile.document(currentuser.getUid()).delete();
 
                 Toast.makeText(MainActivity.this, "Account Deleted !", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(MainActivity.this, startActivity.class));

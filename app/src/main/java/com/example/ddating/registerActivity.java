@@ -63,7 +63,8 @@ public class registerActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
                     Toast.makeText(registerActivity.this, "Registration Success", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(registerActivity.this, MainActivity.class));
+                    //startActivity(new Intent(registerActivity.this, MainActivity.class));
+                    startActivity(new Intent(registerActivity.this, addUserProfileActivity.class));
                     finish();
                 } else {
                     Toast.makeText(registerActivity.this, "Registration Failed", Toast.LENGTH_SHORT).show();
