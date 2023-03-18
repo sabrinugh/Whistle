@@ -29,12 +29,17 @@ public class logInActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
 
+        // Variable
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         login = findViewById(R.id.login);
 
         auth = FirebaseAuth.getInstance();
 
+        // Variable
+
+
+        // Log IN with Email and Password
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -46,6 +51,8 @@ public class logInActivity extends AppCompatActivity {
         });
     }
 
+
+    // Function -> Log In with Email and Password
     private void logInUser(String email, String password) {
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override

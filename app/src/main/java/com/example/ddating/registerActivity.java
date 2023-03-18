@@ -31,19 +31,24 @@ public class registerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        // Variable
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         register = findViewById(R.id.register);
 
         auth = FirebaseAuth.getInstance();
 
+        // Variable
+
+
+        // Create Account with Email and Password
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String txt_email = email.getText().toString();
                 String txt_password = password.getText().toString();
 
-                if (TextUtils.isEmpty(txt_email) || TextUtils.isEmpty(txt_password)){
+                if (TextUtils.isEmpty(txt_email) || TextUtils.isEmpty(txt_password)) {
                     Toast.makeText(registerActivity.this, "Empty Email or Password", Toast.LENGTH_SHORT).show();
                 } else if (txt_password.length() < 6) {
                     Toast.makeText(registerActivity.this, "Password too short", Toast.LENGTH_SHORT).show();
@@ -56,12 +61,14 @@ public class registerActivity extends AppCompatActivity {
 
     }
 
+
+    // Function -> Create Account with Email and Password
     private void registerUser(String email, String password) {
 
         auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(registerActivity.this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()){
+                if (task.isSuccessful()) {
                     Toast.makeText(registerActivity.this, "Registration Success", Toast.LENGTH_SHORT).show();
                     //startActivity(new Intent(registerActivity.this, MainActivity.class));
                     startActivity(new Intent(registerActivity.this, addUserProfileActivity.class));

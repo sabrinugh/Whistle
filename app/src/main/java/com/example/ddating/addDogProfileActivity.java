@@ -58,13 +58,13 @@ public class addDogProfileActivity extends AppCompatActivity {
                 String txt_dogType = dogType.getText().toString();
                 String txt_gender = gender.getText().toString();
                 String txt_age = age.getText().toString();
-                int int_age = Integer.parseInt(txt_age);
+                // int int_age = Integer.parseInt(txt_age);
 
                 HashMap<String, Object> map = new HashMap<>();
                 map.put("dogName", txt_dogName);
                 map.put("dogType", txt_dogType);
                 map.put("gender", txt_gender);
-                map.put("age", int_age);
+                map.put("age", txt_age);
 
                 userDog.document(currentUser.getUid()).collection("Dogs").document().set(map);
                 map.clear();

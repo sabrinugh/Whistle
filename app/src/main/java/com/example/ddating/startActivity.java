@@ -21,9 +21,14 @@ public class startActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
+        // Variable
         register = findViewById(R.id.register);
         login = findViewById(R.id.login);
 
+        // Variable
+
+
+        // Register
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -31,6 +36,8 @@ public class startActivity extends AppCompatActivity {
             }
         });
 
+
+        // Log IN
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -39,13 +46,14 @@ public class startActivity extends AppCompatActivity {
         });
     }
 
+    // Check User Log IN or NOT
     @Override
     protected void onStart() {
         super.onStart();
 
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
-        if(currentUser != null){
+        if (currentUser != null) {
             currentUser.reload();
             // Toast.makeText(startActivity.this, currentUser.getUid(), Toast.LENGTH_SHORT).show();
 

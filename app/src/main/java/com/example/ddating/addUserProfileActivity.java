@@ -58,13 +58,13 @@ public class addUserProfileActivity extends AppCompatActivity {
                 String txt_lastName = lastName.getText().toString();
                 String txt_gender = gender.getText().toString();
                 String txt_age = age.getText().toString();
-                int int_age = Integer.parseInt(txt_age);
+                // int int_age = Integer.parseInt(txt_age);
 
                 HashMap<String, Object> map = new HashMap<>();
                 map.put("firstName", txt_firstName);
                 map.put("lastName", txt_lastName);
                 map.put("gender", txt_gender);
-                map.put("age", int_age);
+                map.put("age", txt_age);
 
                 users.document(currentUser.getUid()).set(map);
                 map.clear();
