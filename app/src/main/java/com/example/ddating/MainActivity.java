@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button logout;
     private Button delete;
+    private Button setting;
     private ImageView dogImage;
 
     @Override
@@ -47,25 +48,35 @@ public class MainActivity extends AppCompatActivity {
         // Variable
         logout = findViewById(R.id.logout);
         delete = findViewById(R.id.delete);
+        setting = findViewById(R.id.setting);
         dogImage = findViewById(R.id.dogImage);
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         // Variable
 
-        // Get Image
-        getImage();
-
-        // Back to Main Activity and logout
-        logout.setOnClickListener(new View.OnClickListener() {
+        // Setting Page
+        setting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
-                Toast.makeText(MainActivity.this, "Logged Out", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(MainActivity.this, startActivity.class));
-                finish();
+                startActivity(new Intent(MainActivity.this, settinPage.class));
             }
         });
+
+
+        // Get Image
+        // getImage();
+
+        // Back to Main Activity and logout
+//        logout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                FirebaseAuth.getInstance().signOut();
+//                Toast.makeText(MainActivity.this, "Logged Out", Toast.LENGTH_SHORT).show();
+//                startActivity(new Intent(MainActivity.this, startActivity.class));
+//                finish();
+//            }
+//        });
 
         // Delete all User profile
         delete.setOnClickListener(new View.OnClickListener() {
