@@ -64,11 +64,12 @@ public class settinPage extends AppCompatActivity {
         // Get Image
         getImage();
 
-        // editPassword Activity
+        // editPasswordActivity Activity
         editPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(settinPage.this, "Work In Progress", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(settinPage.this, editPasswordActivity.class));
             }
         });
 
