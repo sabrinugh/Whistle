@@ -4,15 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".addDogProfileActivity">
+    tools:context=".editDogActivity">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/title"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:text="Add Dog Profile"
+        android:text="Edit Dog Profile"
+        android:textAlignment="center"
         android:textSize="24dp" />
+
 
     <ImageView
         android:id="@+id/image"
@@ -23,7 +26,7 @@
         android:src="@drawable/default_image" />
 
     <Button
-        android:id="@+id/addImage"
+        android:id="@+id/editImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/image"
@@ -35,7 +38,7 @@
         android:id="@+id/txt_DogName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/addImage"
+        android:layout_below="@+id/editImage"
         android:layout_marginTop="30dp"
         android:text="Dog Name"
         android:textAlignment="center"
@@ -105,12 +108,19 @@
         android:textAlignment="center" />
 
     <Button
-        android:id="@+id/addDog"
-        android:layout_width="wrap_content"
+        android:id="@+id/editDog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/deleteDog"
+        android:text="Edit Dog Profile" />
+
+    <Button
+        android:id="@+id/deleteDog"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
         android:layout_marginBottom="10dp"
-        android:text="Create Dog Profile" />
+        android:text="Delete Dog"/>
+
 
 </RelativeLayout>

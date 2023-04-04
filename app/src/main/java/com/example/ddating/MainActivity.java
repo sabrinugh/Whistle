@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
                                     if (task.getResult().size() > 0) {
                                         Log.d("Message", "Dogs found");
 
-                                    } else {
+                                    } else { // No Dog Data
                                         Log.d("Message", "No Data");
 
                                         Toast.makeText(MainActivity.this, "Dog Profile Missing", Toast.LENGTH_SHORT).show();
@@ -106,14 +106,14 @@ public class MainActivity extends AppCompatActivity {
                                 }
                             }
                         });
-                    } else {
+                    } else { // No User Data
                         Log.d("Message", "No Data");
 
                         Toast.makeText(MainActivity.this, "User Profile Missing", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(MainActivity.this, addUserProfileActivity.class));
                         finish();
                     }
-                } else {
+                } else { // Can't collection
                     Log.d("Message", "User Collection Error");
                 }
             }

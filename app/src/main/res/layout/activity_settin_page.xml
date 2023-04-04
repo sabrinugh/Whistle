@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".settinPage">
 
-<!--    need to change the ImageView id-->
+    <!--    need to change the ImageView id-->
 
     <ImageView
         android:id="@+id/dogImage"
@@ -26,29 +26,35 @@
         android:text="User ID"
         android:textSize="24dp" />
 
-    <TextView
-        android:id="@+id/password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/userID"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="30dp"
-        android:text="Password"
-        android:textSize="24dp" />
-
     <Button
         android:id="@+id/editPassword"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/userID"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="30dp"
-        android:layout_marginRight="30dp"
-        android:text="edit" />
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:text="Edit Password" />
+
+    <Button
+        android:id="@+id/editUserProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editPassword"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:text="Edit User Profile" />
+
+    <Button
+        android:id="@+id/editDogProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editUserProfile"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:text="Edit Dog Profile" />
 
 
-<!--    Something-->
-
+    <!--LogOut and Delete    -->
 
     <Button
         android:id="@+id/logOut"

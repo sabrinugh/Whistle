@@ -37,6 +37,8 @@ public class settinPage extends AppCompatActivity {
     private ImageView dogImage;
     private TextView userID;
     private Button editPassword;
+    private Button editUserPassword;
+    private Button editDogProfile;
 
     private Button logOut;
     private Button deleteAccount;
@@ -52,6 +54,8 @@ public class settinPage extends AppCompatActivity {
         dogImage = findViewById(R.id.dogImage);
         userID = findViewById(R.id.userID);
         editPassword = findViewById(R.id.editPassword);
+        editUserPassword = findViewById(R.id.editUserProfile);
+        editDogProfile = findViewById(R.id.editDogProfile);
 
         logOut = findViewById(R.id.logOut);
         deleteAccount = findViewById(R.id.deleteAccount);
@@ -68,8 +72,24 @@ public class settinPage extends AppCompatActivity {
         editPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(settinPage.this, "Work In Progress", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(settinPage.this, "Edit Password", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(settinPage.this, editPasswordActivity.class));
+            }
+        });
+
+        // EditUserProfile Activity
+        editUserPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(settinPage.this, editUserActivity.class));
+            }
+        });
+
+        // EditDogProfile Activity
+        editDogProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(settinPage.this, editDogActivity.class));
             }
         });
 
@@ -178,8 +198,6 @@ public class settinPage extends AppCompatActivity {
     }
 
     private void getImage() {
-
-
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
         FirebaseFirestore.getInstance().collection("Users").document(currentUser.getUid()).collection("Dogs").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".editUserActivity">
+
+    <TextView
+        android:id="@+id/txt_editusertitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="Edit User Profile"
+        android:textAlignment="center"
+        android:textSize="24dp" />
+
+    <TextView
+        android:id="@+id/txt_UserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_editusertitle"
+        android:layout_marginTop="50dp"
+        android:text="User Name"
+        android:textAlignment="center"
+        android:textSize="16dp" />
+
+    <EditText
+        android:id="@+id/editUserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_UserName"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" />
+
+    <TextView
+        android:id="@+id/txt_UserGender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editUserName"
+        android:layout_marginTop="15dp"
+        android:text="Gender"
+        android:textAlignment="center"
+        android:textSize="16dp" />
+
+    <EditText
+        android:id="@+id/editUserGender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_UserGender"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" />
+
+    <TextView
+        android:id="@+id/txt_UserAge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editUserGender"
+        android:layout_marginTop="10dp"
+        android:text="Age"
+        android:textAlignment="center"
+        android:textSize="16dp" />
+
+    <EditText
+        android:id="@+id/editUserAge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_UserAge"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" />
+
+
+    <Button
+        android:id="@+id/editUserButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="Edit User Profile" />
+
+
+</RelativeLayout>
