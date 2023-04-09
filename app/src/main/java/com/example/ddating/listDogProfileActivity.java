@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -25,6 +26,7 @@ import java.util.List;
 
 public class listDogProfileActivity extends AppCompatActivity {
 
+    private Button addDog;
 
     private ListView listDog;
     private List<String> list_dogID = new ArrayList<String>();
@@ -35,10 +37,11 @@ public class listDogProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // ViewDataBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_list_dog_profile);
         setContentView(R.layout.activity_list_dog_profile);
 
         // Variable
+
+        addDog = findViewById(R.id.addDog);
 
         Boolean dataGet = false;
         listDog = findViewById(R.id.listDog);
@@ -51,6 +54,14 @@ public class listDogProfileActivity extends AppCompatActivity {
         // Click the List View
         clickDogProfile();
 
+        // Add New Dog
+        addDog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(listDogProfileActivity.this, addDogProfileActivity.class));
+                finish();
+            }
+        });
 
     }
 
