@@ -66,7 +66,7 @@ public class settinPage extends AppCompatActivity {
 
 
         // Get Image
-        getImage();
+        // getImage();
 
         // editPasswordActivity Activity
         editPassword.setOnClickListener(new View.OnClickListener() {
@@ -89,7 +89,7 @@ public class settinPage extends AppCompatActivity {
         editDogProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(settinPage.this, editDogActivity.class));
+                startActivity(new Intent(settinPage.this, listDogProfileActivity.class));
             }
         });
 
