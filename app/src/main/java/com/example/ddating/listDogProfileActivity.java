@@ -25,6 +25,7 @@ public class listDogProfileActivity extends AppCompatActivity {
 
     private ListView listDog;
     private List<String> list_dogName = new ArrayList<String>();
+    private List<String> list_dogImageURI = new ArrayList<String>();
 
 
     @Override
@@ -71,13 +72,16 @@ public class listDogProfileActivity extends AppCompatActivity {
                         String txt_dogImageURI = document.getString("DogImageURI");
 
                         list_dogName.add(txt_dogName);
+                        list_dogImageURI.add(txt_dogImageURI);
 
                         Log.d("Message", list_dogName.toString());
 
                     }
 
+                    // Create List View
                     String[] array_dogName = list_dogName.toArray(new String[0]);
-                    listDogAdapter listAdapter = new listDogAdapter(getApplicationContext(), array_dogName);
+                    String[] array_dogImageURI = list_dogImageURI.toArray(new String[0]);
+                    listDogAdapter listAdapter = new listDogAdapter(getApplicationContext(), array_dogName, array_dogImageURI);
 
                     listDog.setAdapter(listAdapter);
 
