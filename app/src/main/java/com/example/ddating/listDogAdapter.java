@@ -30,14 +30,14 @@ public class listDogAdapter extends BaseAdapter {
     private String list_dogImageURI[];
     private LayoutInflater inflater;
 
-    TextView txt_dogName;
-    ImageView txt_dogImageURI;
+    private TextView txt_dogName;
+    private ImageView txt_dogImageURI;
 
     public listDogAdapter(Context applicationContext, String[] list_dogName, String[] list_dogImageURI) {
         this.context = context;
         this.list_dogName = list_dogName;
         this.list_dogImageURI = list_dogImageURI;
-        this.inflater = (LayoutInflater.from(applicationContext)) ;
+        this.inflater = (LayoutInflater.from(applicationContext));
     }
 
     @Override
