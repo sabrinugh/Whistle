@@ -39,7 +39,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/editImage"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="15dp"
         android:text="Dog Name"
         android:textAlignment="center"
         android:textSize="16dp" />
@@ -57,7 +57,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/dogName"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
         android:text="Dog Type"
         android:textAlignment="center"
         android:textSize="16dp" />
@@ -75,7 +75,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/dogType"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
         android:text="Dog Gender"
         android:textAlignment="center"
         android:textSize="16dp" />
@@ -94,7 +94,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/gender"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
         android:text="Dog Age"
         android:textAlignment="center"
         android:textSize="16dp" />

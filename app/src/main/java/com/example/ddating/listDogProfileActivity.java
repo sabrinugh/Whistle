@@ -3,8 +3,11 @@ package com.example.ddating;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -24,6 +27,7 @@ public class listDogProfileActivity extends AppCompatActivity {
 
 
     private ListView listDog;
+    private List<String> list_dogID = new ArrayList<String>();
     private List<String> list_dogName = new ArrayList<String>();
     private List<String> list_dogImageURI = new ArrayList<String>();
 
@@ -44,6 +48,28 @@ public class listDogProfileActivity extends AppCompatActivity {
         // Get Dog Data
         getDogProfiles();
 
+        // Click the List View
+        clickDogProfile();
+
+
+    }
+
+    private void clickDogProfile() {
+
+        listDog.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+
+                // Log.d("Message", list_dogID.get(position));
+                String dogID = list_dogID.get(position);
+                String dogImageURI = list_dogImageURI.get(position);
+                Intent intent = new Intent(listDogProfileActivity.this, editDogActivity.class);
+                intent.putExtra("dogID", dogID);
+                intent.putExtra("dogImageURI", dogImageURI);
+                startActivity(intent);
+
+            }
+        });
 
     }
 
@@ -71,6 +97,7 @@ public class listDogProfileActivity extends AppCompatActivity {
                         String txt_dogAge = document.getString("age");
                         String txt_dogImageURI = document.getString("DogImageURI");
 
+                        list_dogID.add(txt_dogID);
                         list_dogName.add(txt_dogName);
                         list_dogImageURI.add(txt_dogImageURI);
 

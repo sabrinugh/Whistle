@@ -97,6 +97,7 @@ public class addDogProfileActivity extends AppCompatActivity {
         });
     }
 
+    // Function
     private void openImage() {
         Intent intent = new Intent();
         intent.setType("image/");
