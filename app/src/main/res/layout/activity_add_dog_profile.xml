@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".addDogProfileActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="Add Dog Profile"
+        android:textSize="24dp" />
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/default_image" />
+
+    <Button
+        android:id="@+id/addImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/image"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="Image" />
+
+    <TextView
+        android:id="@+id/txt_DogName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/addImage"
+        android:layout_marginTop="30dp"
+        android:text="Dog Name"
+        android:textAlignment="center"
+        android:textSize="16dp" />
+
+    <EditText
+        android:id="@+id/dogName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_DogName"
+        android:hint="Dog Name"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/txt_DogType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dogName"
+        android:layout_marginTop="15dp"
+        android:text="Dog Type"
+        android:textAlignment="center"
+        android:textSize="16dp" />
+
+    <EditText
+        android:id="@+id/dogType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_DogType"
+        android:hint="Dog Type"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/txt_DogGender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dogType"
+        android:layout_marginTop="15dp"
+        android:text="Dog Gender"
+        android:textAlignment="center"
+        android:textSize="16dp" />
+
+    <EditText
+        android:id="@+id/gender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_DogGender"
+        android:hint="Gender"
+        android:textAlignment="center" />
+
+
+    <TextView
+        android:id="@+id/txt_DogAge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gender"
+        android:layout_marginTop="15dp"
+        android:text="Dog Age"
+        android:textAlignment="center"
+        android:textSize="16dp" />
+
+    <EditText
+        android:id="@+id/age"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_DogAge"
+        android:hint="Age"
+        android:textAlignment="center" />
+
+    <Button
+        android:id="@+id/addDog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:text="Create Dog Profile" />
+
+</RelativeLayout>
