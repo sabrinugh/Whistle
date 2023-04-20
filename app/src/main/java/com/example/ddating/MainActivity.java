@@ -70,6 +70,8 @@ public class MainActivity extends AppCompatActivity {
         cardStack.setAdapter(adapter);
 
         // on below line we are setting event callback to our card stack.
+
+
         cardStack.setEventCallback(new SwipeDeck.SwipeEventCallback() {
             @Override
             public void cardSwipedLeft(int position) {
@@ -99,6 +101,10 @@ public class MainActivity extends AppCompatActivity {
             public void cardActionUp() {
                 // this method is called when card is moved up.
                 Log.i("TAG", "CARDS MOVED UP");
+            }
+        });
+
+
         // Variable
         setting = findViewById(R.id.setting);
 

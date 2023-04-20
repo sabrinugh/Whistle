@@ -32,7 +32,6 @@
 
     </com.daprlabs.cardstack.SwipeFrameLayout>
 
-</RelativeLayout>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -40,7 +39,8 @@
         android:text="Setting"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-    />
+        />
+
 
 
 <!--    <ImageView-->
