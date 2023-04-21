@@ -4,18 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ADD8E6"
     tools:context=".editDogActivity">
 
     <TextView
         android:id="@+id/title"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:text="Edit Dog Profile"
-        android:textAlignment="center"
-        android:textSize="24dp" />
-
+        android:text="Add Dog Profile"
+        android:fontFamily="@font/aldrich"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:textSize="30dp" />
 
     <ImageView
         android:id="@+id/image"
@@ -32,95 +34,120 @@
         android:layout_below="@+id/image"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:text="Image" />
+        android:text="Edit Image" />
 
     <TextView
         android:id="@+id/txt_DogName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/editImage"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="30dp"
         android:text="Dog Name"
-        android:textAlignment="center"
-        android:textSize="16dp" />
+        android:textColor="#000000"
+        android:layout_marginLeft="40dp"
+        android:textSize="20dp"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/dogName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
         android:layout_below="@id/txt_DogName"
-        android:hint="Dog Name"
-        android:textAlignment="center" />
+        android:inputType="text"
+        android:hint="Enter Here"
+        android:layout_marginLeft="40dp"
+        android:textColor="#000000"
+        android:backgroundTint="@android:color/transparent" />
 
     <TextView
         android:id="@+id/txt_DogType"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/dogName"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="15dp"
         android:text="Dog Type"
-        android:textAlignment="center"
-        android:textSize="16dp" />
+        android:layout_marginLeft="40dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        />
 
     <EditText
         android:id="@+id/dogType"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
         android:layout_below="@id/txt_DogType"
-        android:hint="Dog Type"
-        android:textAlignment="center" />
+        android:backgroundTint="@android:color/transparent"
+        android:inputType="text"
+        android:hint="Enter Here"
+        android:layout_marginLeft="40dp" />
 
     <TextView
         android:id="@+id/txt_DogGender"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/dogType"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="15dp"
         android:text="Dog Gender"
-        android:textAlignment="center"
-        android:textSize="16dp" />
+        android:layout_marginLeft="40dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="#000000" />
 
     <EditText
         android:id="@+id/gender"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
         android:layout_below="@id/txt_DogGender"
-        android:hint="Gender"
-        android:textAlignment="center" />
-
+        android:backgroundTint="@android:color/transparent"
+        android:inputType="text"
+        android:hint="Enter Here"
+        android:layout_marginLeft="40dp" />
 
     <TextView
         android:id="@+id/txt_DogAge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/gender"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="15dp"
         android:text="Dog Age"
-        android:textAlignment="center"
-        android:textSize="16dp" />
+        android:layout_marginLeft="40dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="#000000" />
 
     <EditText
         android:id="@+id/age"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
         android:layout_below="@id/txt_DogAge"
-        android:hint="Age"
-        android:textAlignment="center" />
+        android:hint="Enter Here"
+        android:layout_marginLeft="40dp"
+        android:textColor="#000000"
+        android:backgroundTint="@android:color/transparent" />
 
     <Button
         android:id="@+id/editDog"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/deleteDog"
-        android:text="Edit Dog Profile" />
+        android:layout_alignParentBottom="true"
+        android:text="Save Changes"
+        android:layout_marginBottom="25dp"
+        android:layout_marginLeft="40dp"
+        android:background="#2E7D32"
+        />
 
     <Button
         android:id="@+id/deleteDog"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="10dp"
-        android:text="Delete Dog"/>
+        android:text="Delete Dog"
+        android:layout_toRightOf="@+id/editDog"
+        android:layout_marginBottom="25dp"
+        android:layout_marginLeft="50dp"
+        android:background="#C20A0A"
+        />
 
 
 </RelativeLayout>

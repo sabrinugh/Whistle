@@ -62,7 +62,7 @@
         <EditText
             android:id="@+id/email"
             android:layout_width="200dp"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:backgroundTint="@android:color/transparent"
             android:hint="Enter email address"
             android:inputType="textEmailAddress"
@@ -83,7 +83,7 @@
         <EditText
             android:id="@+id/password"
             android:layout_width="200dp"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:backgroundTint="@android:color/transparent"
             android:hint="Enter password"
             android:inputType="textPassword"
