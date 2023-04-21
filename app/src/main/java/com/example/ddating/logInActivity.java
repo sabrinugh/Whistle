@@ -20,7 +20,6 @@ public class logInActivity extends AppCompatActivity {
     private EditText email;
     private EditText password;
     private Button login;
-
     private FirebaseAuth auth;
 
     @Override
@@ -29,6 +28,7 @@ public class logInActivity extends AppCompatActivity {
         setContentView(R.layout.activity_log_in);
 
         // Variable
+
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         login = findViewById(R.id.login);
