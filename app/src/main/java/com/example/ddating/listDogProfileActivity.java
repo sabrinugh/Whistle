@@ -4,6 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,13 +17,19 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.storage.FileDownloadTask;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +41,7 @@ public class listDogProfileActivity extends AppCompatActivity {
     private List<String> list_dogID = new ArrayList<String>();
     private List<String> list_dogName = new ArrayList<String>();
     private List<String> list_dogImageURI = new ArrayList<String>();
+    private List<Bitmap> list_dogImage = new ArrayList<>();
 
 
     @Override
@@ -90,8 +100,6 @@ public class listDogProfileActivity extends AppCompatActivity {
 
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        int taskSize;
-
 
         db.collection("Users").document(currentUser.getUid()).collection("Dogs").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
@@ -114,11 +122,12 @@ public class listDogProfileActivity extends AppCompatActivity {
 
                         Log.d("Message", list_dogName.toString());
 
-                    }
+                    } // End for
 
                     // Create List View
                     String[] array_dogName = list_dogName.toArray(new String[0]);
                     String[] array_dogImageURI = list_dogImageURI.toArray(new String[0]);
+
                     listDogAdapter listAdapter = new listDogAdapter(getApplicationContext(), array_dogName, array_dogImageURI);
 
                     listDog.setAdapter(listAdapter);

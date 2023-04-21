@@ -1,4 +1,5 @@
 package com.example.ddating;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -9,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.daprlabs.cardstack.SwipeDeck;
 
 import java.util.ArrayList;
+
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -53,15 +55,91 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Variable
+        setting = findViewById(R.id.setting);
+
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        // Variable
+
+        // Get Swipe Data
+        getSwipeData();
+
+        // Setting Page
+        setting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, settinPage.class));
+            }
+        });
+    }
+
+    //
+
+    //
+
+    // Function
+
+    private void getSwipeData() {
         // on below line we are initializing our array list and swipe deck.
         courseModalArrayList = new ArrayList<>();
         cardStack = (SwipeDeck) findViewById(R.id.swipe_deck);
 
         // on below line we are adding data to our array list.
         courseModalArrayList.add(new CourseModal("C++", "30 days", "20 Tracks", "C++ Self Paced Course", R.drawable.nickistare));
-        courseModalArrayList.add(new CourseModal("Java", "30 days", "20 Tracks", "Java Self Paced Course", R.drawable.uh));
-        courseModalArrayList.add(new CourseModal("Python", "30 days", "20 Tracks", "Python Self Paced Course", R.drawable.patrick));
-        courseModalArrayList.add(new CourseModal("DSA", "30 days", "20 Tracks", "DSA Self Paced Course", R.drawable.zoran));
+//        courseModalArrayList.add(new CourseModal("Java", "30 days", "20 Tracks", "Java Self Paced Course", R.drawable.uh));
+//        courseModalArrayList.add(new CourseModal("Python", "30 days", "20 Tracks", "Python Self Paced Course", R.drawable.patrick));
+//        courseModalArrayList.add(new CourseModal("DSA", "30 days", "20 Tracks", "DSA Self Paced Course", R.drawable.zoran));
+//
+
+        // Get all Dog Data
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        // Get all User
+        db.collection("Users").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> userTask) {
+                if (userTask.isSuccessful()) {
+                    for (QueryDocumentSnapshot userDocument : userTask.getResult()) {
+
+                        // Skip the current User
+                        if (userDocument.getId() == currentUser.getUid()) {
+                            continue;
+                        }
+
+                        // Get all dog in the User
+                        db.collection("Users").document(userDocument.getId()).collection("Dogs").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<QuerySnapshot> dogTask) {
+                                if (dogTask.isSuccessful()) {
+                                    for (QueryDocumentSnapshot dogDocument : dogTask.getResult()) {
+
+                                        String txt_dogID = dogDocument.getId();
+                                        String txt_dogName = dogDocument.getString("dogName");
+                                        String txt_dogType = dogDocument.getString("dogType");
+                                        String txt_dogGender = dogDocument.getString("gender");
+                                        String txt_dogAge = dogDocument.getString("age");
+                                        String txt_dogImageURI = dogDocument.getString("DogImageURI");
+
+                                        // Skip if the user not finish their dog profile
+                                        if (txt_dogName.isEmpty()) {
+                                            continue;
+                                        }
+
+                                        courseModalArrayList.add(new CourseModal(txt_dogName, txt_dogType, txt_dogGender, txt_dogAge, R.drawable.default_image));
+                                    }
+                                }
+                            }
+                        });
+
+                    }
+                }
+            }
+        });
+
+        // Get All Dog Data
 
         // on below line we are creating a variable for our adapter class and passing array list to it.
         final DeckAdapter adapter = new DeckAdapter(courseModalArrayList, this);
@@ -101,23 +179,6 @@ public class MainActivity extends AppCompatActivity {
             public void cardActionUp() {
                 // this method is called when card is moved up.
                 Log.i("TAG", "CARDS MOVED UP");
-            }
-        });
-
-
-        // Variable
-        setting = findViewById(R.id.setting);
-
-
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-
-        // Variable
-
-        // Setting Page
-        setting.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, settinPage.class));
             }
         });
     }

@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FileDownloadTask;
@@ -28,6 +29,7 @@ public class listDogAdapter extends BaseAdapter {
     private Context context;
     private String list_dogName[];
     private String list_dogImageURI[];
+    private Bitmap list_dogImage[];
     private LayoutInflater inflater;
 
     private TextView txt_dogName;
@@ -69,6 +71,7 @@ public class listDogAdapter extends BaseAdapter {
         return view;
     }
 
+
     private void getImage(String string_dogImageURI) {
         StorageReference fileRef = FirebaseStorage.getInstance().getReference().child(string_dogImageURI);
 
@@ -81,6 +84,7 @@ public class listDogAdapter extends BaseAdapter {
                     Log.d("Message", "Dog Image Found !");
 
                     Bitmap bitmap = BitmapFactory.decodeFile(localFile.getAbsolutePath());
+
                     txt_dogImageURI.setImageBitmap(bitmap);
                 }
             }).addOnFailureListener(new OnFailureListener() {
@@ -95,4 +99,6 @@ public class listDogAdapter extends BaseAdapter {
             e.printStackTrace();
         }
     }
+
+
 }
