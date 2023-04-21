@@ -107,6 +107,8 @@ public class listDogProfileActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     Log.d("Message", "Connect Dogs collection");
 
+                    final int[] position = {0};
+
                     for (QueryDocumentSnapshot document : task.getResult()) {
 
                         String txt_dogID = document.getId();
@@ -122,15 +124,54 @@ public class listDogProfileActivity extends AppCompatActivity {
 
                         Log.d("Message", list_dogName.toString());
 
+
+                        // Get Image
+
+                        try {
+                            File localFile = File.createTempFile("DogImage", "jpg");
+
+                            FirebaseStorage.getInstance().getReference().child(txt_dogImageURI).getFile(localFile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                                @Override
+                                public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                                    Log.d("Message", "Dog Image Found !");
+
+                                    position[0]++;
+
+
+                                    list_dogImage.add(BitmapFactory.decodeFile(localFile.getAbsolutePath()));
+
+                                    if (task.getResult().size() == position[0]) {
+                                        String[] array_dogName = list_dogName.toArray(new String[0]);
+                                        String[] array_dogImageURI = list_dogImageURI.toArray(new String[0]);
+                                        Bitmap[] array_dogImage = list_dogImage.toArray(new Bitmap[0]);
+
+                                        listDogAdapter listAdapter = new listDogAdapter(getApplicationContext(), array_dogName, array_dogImageURI, array_dogImage);
+
+                                        listDog.setAdapter(listAdapter);
+                                    }
+
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Log.d("ERROR", e.toString());
+                                }
+                            });
+
+
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+
                     } // End for
 
                     // Create List View
-                    String[] array_dogName = list_dogName.toArray(new String[0]);
-                    String[] array_dogImageURI = list_dogImageURI.toArray(new String[0]);
+//                    String[] array_dogName = list_dogName.toArray(new String[0]);
+//                    String[] array_dogImageURI = list_dogImageURI.toArray(new String[0]);
 
-                    listDogAdapter listAdapter = new listDogAdapter(getApplicationContext(), array_dogName, array_dogImageURI);
+//                    listDogAdapter listAdapter = new listDogAdapter(getApplicationContext(), array_dogName, array_dogImageURI);
 
-                    listDog.setAdapter(listAdapter);
+//                    listDog.setAdapter(listAdapter);
 
 
                 } else {

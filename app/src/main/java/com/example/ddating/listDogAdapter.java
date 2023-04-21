@@ -21,6 +21,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.io.File;
+import java.io.IOError;
 import java.io.IOException;
 
 public class listDogAdapter extends BaseAdapter {
@@ -35,10 +36,11 @@ public class listDogAdapter extends BaseAdapter {
     private TextView txt_dogName;
     private ImageView txt_dogImageURI;
 
-    public listDogAdapter(Context applicationContext, String[] list_dogName, String[] list_dogImageURI) {
+    public listDogAdapter(Context applicationContext, String[] list_dogName, String[] list_dogImageURI, Bitmap[] list_dogImage) {
         this.context = context;
         this.list_dogName = list_dogName;
         this.list_dogImageURI = list_dogImageURI;
+        this.list_dogImage = list_dogImage;
         this.inflater = (LayoutInflater.from(applicationContext));
     }
 
@@ -66,7 +68,13 @@ public class listDogAdapter extends BaseAdapter {
 
         txt_dogName.setText(list_dogName[position]);
 
-        getImage(list_dogImageURI[position]);
+        try {
+            txt_dogImageURI.setImageBitmap(list_dogImage[position]);
+        } catch (IOError e) {
+            e.printStackTrace();
+        }
+
+        //getImage(list_dogImageURI[position]);
 
         return view;
     }
