@@ -1,5 +1,7 @@
 package com.example.ddating;
 
+import static java.lang.Thread.sleep;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -75,6 +77,10 @@ public class listDogProfileActivity extends AppCompatActivity {
 
     }
 
+    //
+
+    // Function
+
     private void clickDogProfile() {
 
         listDog.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -94,6 +100,7 @@ public class listDogProfileActivity extends AppCompatActivity {
 
     }
 
+    //
 
     // Function
     private void getDogProfiles() {
@@ -118,15 +125,13 @@ public class listDogProfileActivity extends AppCompatActivity {
                         String txt_dogAge = document.getString("age");
                         String txt_dogImageURI = document.getString("DogImageURI");
 
-                        list_dogID.add(txt_dogID);
-                        list_dogName.add(txt_dogName);
-                        list_dogImageURI.add(txt_dogImageURI);
+//                        list_dogID.add(txt_dogID);
+//                        list_dogName.add(txt_dogName);
+//                        list_dogImageURI.add(txt_dogImageURI);
 
                         Log.d("Message", list_dogName.toString());
 
-
                         // Get Image
-
                         try {
                             File localFile = File.createTempFile("DogImage", "jpg");
 
@@ -137,8 +142,12 @@ public class listDogProfileActivity extends AppCompatActivity {
 
                                     position[0]++;
 
+                                    Bitmap bitmap = BitmapFactory.decodeFile(localFile.getAbsolutePath());
 
-                                    list_dogImage.add(BitmapFactory.decodeFile(localFile.getAbsolutePath()));
+                                    list_dogID.add(txt_dogID);
+                                    list_dogName.add(txt_dogName);
+                                    list_dogImageURI.add(txt_dogImageURI);
+                                    list_dogImage.add(bitmap);
 
                                     if (task.getResult().size() == position[0]) {
                                         String[] array_dogName = list_dogName.toArray(new String[0]);
@@ -158,11 +167,10 @@ public class listDogProfileActivity extends AppCompatActivity {
                                 }
                             });
 
-
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
-
+                        // End get Image
                     } // End for
 
                     // Create List View
@@ -172,7 +180,6 @@ public class listDogProfileActivity extends AppCompatActivity {
 //                    listDogAdapter listAdapter = new listDogAdapter(getApplicationContext(), array_dogName, array_dogImageURI);
 
 //                    listDog.setAdapter(listAdapter);
-
 
                 } else {
                     Toast.makeText(listDogProfileActivity.this, "Data Not Found !", Toast.LENGTH_SHORT).show();
@@ -186,7 +193,6 @@ public class listDogProfileActivity extends AppCompatActivity {
                 Log.d("ERROR", e.toString());
             }
         });
-
 
     }
 }

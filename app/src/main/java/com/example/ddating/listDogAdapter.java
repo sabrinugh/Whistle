@@ -67,12 +67,8 @@ public class listDogAdapter extends BaseAdapter {
         txt_dogImageURI = view.findViewById(R.id.listDog_item_image);
 
         txt_dogName.setText(list_dogName[position]);
+        txt_dogImageURI.setImageBitmap(list_dogImage[position]);
 
-        try {
-            txt_dogImageURI.setImageBitmap(list_dogImage[position]);
-        } catch (IOError e) {
-            e.printStackTrace();
-        }
 
         //getImage(list_dogImageURI[position]);
 
