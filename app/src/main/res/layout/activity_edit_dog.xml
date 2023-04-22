@@ -131,7 +131,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:text="Save Changes"
+        android:text="Save"
         android:layout_marginBottom="25dp"
         android:layout_marginLeft="40dp"
         android:background="@color/green"
@@ -142,10 +142,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:text="Delete Dog"
+        android:text="Delete"
         android:layout_toRightOf="@+id/editDog"
         android:layout_marginBottom="25dp"
-        android:layout_marginLeft="50dp"
+        android:layout_marginLeft="150dp"
         android:background="@color/red"
         />
 

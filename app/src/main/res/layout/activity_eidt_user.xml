@@ -4,81 +4,118 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ADD8E6"
     tools:context=".editUserActivity">
 
     <TextView
-        android:id="@+id/txt_editusertitle"
-        android:layout_width="match_parent"
+        android:id="@+id/textwhistle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:text="Edit User Profile"
+        android:text="Whistle"
+        android:textSize="40dp"
+        android:fontFamily="@font/aldrich"
         android:textAlignment="center"
-        android:textSize="24dp" />
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+        android:textColor="#000000" />
+
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="17dp"
+        android:src="@drawable/dog"
+        android:layout_toRightOf="@id/textwhistle"/>
+
+    <TextView
+        android:id="@+id/txt_editusertitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit Your Profile"
+        android:fontFamily="@font/aldrich"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="200dp" />
 
     <TextView
         android:id="@+id/txt_UserName"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txt_editusertitle"
+        android:fontFamily="@font/aldrich"
+        android:text="Username"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="50dp"
-        android:text="User Name"
-        android:textAlignment="center"
-        android:textSize="16dp" />
+        />
 
     <EditText
         android:id="@+id/editUserName"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_below="@+id/txt_UserName"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp" />
+        android:inputType="text"
+        android:hint="Enter new text Here"
+        android:layout_marginLeft="20dp"
+        android:textColor="#000000" />
 
     <TextView
         android:id="@+id/txt_UserGender"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/editUserName"
-        android:layout_marginTop="15dp"
+        android:fontFamily="@font/aldrich"
         android:text="Gender"
-        android:textAlignment="center"
-        android:textSize="16dp" />
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:layout_marginLeft="20dp" />
 
     <EditText
         android:id="@+id/editUserGender"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_below="@+id/txt_UserGender"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp" />
+        android:inputType="text"
+        android:hint="Enter new text Here"
+        android:layout_marginLeft="20dp"
+        android:textColor="#000000" />
 
     <TextView
         android:id="@+id/txt_UserAge"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/editUserGender"
-        android:layout_marginTop="10dp"
+        android:fontFamily="@font/aldrich"
         android:text="Age"
-        android:textAlignment="center"
-        android:textSize="16dp" />
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:layout_marginLeft="20dp" />
 
     <EditText
         android:id="@+id/editUserAge"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_below="@+id/txt_UserAge"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp" />
-
+        android:inputType="text"
+        android:hint="Enter new text Here"
+        android:layout_marginLeft="20dp"
+        android:textColor="#000000" />
 
     <Button
         android:id="@+id/editUserButton"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:text="Edit User Profile" />
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="150dp"
+        android:text="Save"
+        android:background="@color/green"/>
 
 
 </RelativeLayout>

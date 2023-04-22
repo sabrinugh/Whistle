@@ -4,7 +4,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ADD8E6"
     tools:context=".settinPage">
+
+    <TextView
+        android:id="@+id/textwhistle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Whistle"
+        android:textSize="40dp"
+        android:fontFamily="@font/aldrich"
+        android:textAlignment="center"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+        android:textColor="#000000" />
+
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="17dp"
+        android:src="@drawable/dog"
+        android:layout_toRightOf="@id/textwhistle"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.1"
+        android:src="@drawable/dog"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/settingstitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Settings"
+        android:fontFamily="@font/aldrich"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="100dp"
+        />
 
     <!--    need to change the ImageView id-->
 
@@ -13,7 +54,7 @@
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="150dp"
         android:src="@drawable/default_image" />
 
     <TextView
@@ -22,37 +63,39 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/dogImage"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:text="User ID"
         android:textSize="24dp" />
 
     <Button
         android:id="@+id/editPassword"
-        android:layout_width="match_parent"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/userID"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:text="Edit Password" />
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:text="Edit Password"
+        android:background="@color/white" />
 
     <Button
         android:id="@+id/editUserProfile"
-        android:layout_width="match_parent"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/editPassword"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:text="Edit User Profile" />
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:text="Your Profile"
+        android:background="@color/white"/>
 
     <Button
         android:id="@+id/editDogProfile"
-        android:layout_width="match_parent"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/editUserProfile"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:text="Edit Dog Profile" />
-
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:text="Dog Profile"
+        android:background="@color/white" />
 
     <!--LogOut and Delete    -->
 
@@ -63,7 +106,8 @@
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="30dp"
         android:layout_marginBottom="30dp"
-        android:text="Log Out" />
+        android:text="Log Out"
+        android:background="@color/orange" />
 
     <Button
         android:id="@+id/deleteAccount"
@@ -73,7 +117,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginRight="30dp"
         android:layout_marginBottom="30dp"
-        android:text="Delete" />
-
+        android:text="Delete"
+        android:background="@color/red" />
 
 </RelativeLayout>

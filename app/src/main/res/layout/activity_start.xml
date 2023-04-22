@@ -33,14 +33,17 @@
         android:layout_height="wrap_content"
         android:text="login"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="440dp" />
+        android:layout_marginTop="440dp"
+        android:background="@color/teal_200" />
 
     <Button
         android:id="@+id/register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/login"
+        android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
-        android:text="register" />
+        android:text="register"
+        android:background="@color/teal_200" />
 
 </RelativeLayout>

@@ -24,7 +24,7 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="70dp"
         android:src="@drawable/default_image" />
 
     <Button
@@ -128,11 +128,12 @@
 
     <Button
         android:id="@+id/addDog"
-        android:layout_width="wrap_content"
+        android:layout_width="170dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="25dp"
-        android:text="Create Dog Profile" />
+        android:text="Create Dog Profile"
+        android:background="@color/green"/>
 
 </RelativeLayout>

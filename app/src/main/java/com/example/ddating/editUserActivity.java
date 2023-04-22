@@ -28,7 +28,7 @@ public class editUserActivity extends AppCompatActivity {
     private EditText editUserName;
     private EditText editUserGender;
     private EditText editUserAge;
-    private Button editUserBotton;
+    private Button editUserButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +39,7 @@ public class editUserActivity extends AppCompatActivity {
         editUserName = findViewById(R.id.editUserName);
         editUserGender = findViewById(R.id.editUserGender);
         editUserAge = findViewById(R.id.editUserAge);
-        editUserBotton = findViewById(R.id.editUserButton);
+        editUserButton = findViewById(R.id.editUserButton);
 
         // Variable
 
@@ -47,7 +47,7 @@ public class editUserActivity extends AppCompatActivity {
         GetUserProfile();
 
         // Submit new User Profile
-        editUserBotton.setOnClickListener(new View.OnClickListener() {
+        editUserButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 upDateUser();

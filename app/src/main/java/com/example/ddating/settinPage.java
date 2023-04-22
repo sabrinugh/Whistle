@@ -39,7 +39,6 @@ public class settinPage extends AppCompatActivity {
     private Button editPassword;
     private Button editUserPassword;
     private Button editDogProfile;
-
     private Button logOut;
     private Button deleteAccount;
 
@@ -62,7 +61,7 @@ public class settinPage extends AppCompatActivity {
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-        // Variabel
+        // Variable
 
 
         // Get Image
