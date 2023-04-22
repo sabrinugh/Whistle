@@ -1,6 +1,7 @@
 package com.example.ddating;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     private SwipeDeck cardStack;
     private ArrayList<CourseModal> courseModalArrayList;
 
-    private Button setting;
+    private ImageButton setting;
 
 
     @Override

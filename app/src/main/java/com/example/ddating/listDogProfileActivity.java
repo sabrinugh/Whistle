@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -26,7 +27,7 @@ import java.util.List;
 
 public class listDogProfileActivity extends AppCompatActivity {
 
-    private Button addDog;
+    private ImageButton addDog;
 
     private ListView listDog;
     private List<String> list_dogID = new ArrayList<String>();

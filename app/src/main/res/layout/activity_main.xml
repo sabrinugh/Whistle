@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#ADD8E6"
     tools:context=".MainActivity">
 
     <!--on below line we are creating a swipe
@@ -32,13 +33,17 @@
 
     </com.daprlabs.cardstack.SwipeFrameLayout>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageButton
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:id="@+id/setting"
-        android:text="Setting"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+        android:text="Settings"
+        android:layout_marginTop="610dp"
+        android:layout_marginLeft="25dp"
+        android:src="@drawable/settings"
+        android:scaleType="fitCenter"
+        android:background="@null"
+        android:contentDescription="settings"
         />
 
 
