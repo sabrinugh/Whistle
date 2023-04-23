@@ -21,6 +21,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -51,7 +52,7 @@ public class settinPage extends AppCompatActivity {
 
         // Variable
         // userImage = findViewById(R.id.userImage);
-        dogImage = findViewById(R.id.dogImage);
+        // dogImage = findViewById(R.id.dogImage);
         userID = findViewById(R.id.userID);
         editPassword = findViewById(R.id.editPassword);
         editUserPassword = findViewById(R.id.editUserProfile);
@@ -64,6 +65,9 @@ public class settinPage extends AppCompatActivity {
 
         // Variabel
 
+
+        // Get User Name
+        getUserName();
 
         // Get Image
         // getImage();
@@ -195,6 +199,24 @@ public class settinPage extends AppCompatActivity {
         }); // End delete Function
 
 
+    }
+
+    private void getUserName() {
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        FirebaseFirestore.getInstance().collection("Users").document(currentUser.getUid()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+
+                String txt_newUserName = task.getResult().getString("userName");
+
+                userID.setText(txt_newUserName);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.d("ERROR", e.toString());
+            }
+        });
     }
 
     private void getImage() {

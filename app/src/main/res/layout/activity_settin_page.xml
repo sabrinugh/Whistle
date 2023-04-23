@@ -8,19 +8,18 @@
 
     <!--    need to change the ImageView id-->
 
-    <ImageView
-        android:id="@+id/dogImage"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
-        android:src="@drawable/default_image" />
+<!--     <ImageView-->
+<!--        android:id="@+id/dogImage"-->
+<!--        android:layout_width="200dp"-->
+<!--        android:layout_height="200dp"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_marginTop="25dp"-->
+<!--        android:src="@drawable/default_image" />-->
 
     <TextView
         android:id="@+id/userID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/dogImage"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
         android:text="User ID"

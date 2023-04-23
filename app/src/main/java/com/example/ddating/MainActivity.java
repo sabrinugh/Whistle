@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
         cardStack = (SwipeDeck) findViewById(R.id.swipe_deck);
 
         // on below line we are adding data to our array list.
-        courseModalArrayList.add(new CourseModal("C++", "30 days", "20 Tracks", "C++ Self Paced Course", null));
+        courseModalArrayList.add(new CourseModal("", "", "", "", null));
 //        courseModalArrayList.add(new CourseModal("Java", "30 days", "20 Tracks", "Java Self Paced Course", R.drawable.uh));
 //        courseModalArrayList.add(new CourseModal("Python", "30 days", "20 Tracks", "Python Self Paced Course", R.drawable.patrick));
 //        courseModalArrayList.add(new CourseModal("DSA", "30 days", "20 Tracks", "DSA Self Paced Course", R.drawable.zoran));
@@ -158,11 +158,14 @@ public class MainActivity extends AppCompatActivity {
 
 
                                         // courseModalArrayList.add(new CourseModal(txt_dogName, txt_dogType, txt_dogGender, txt_dogAge, null));
-                                    }
-                                }
+                                    } // End for
+                                } // End if
+                                else {
+                                    Log.d("ERROR", "Swipe Data not able to get");
+                                } // End else
                             }
                         });
-
+                        // End get all dog in the User
                     }
                 }
             }
