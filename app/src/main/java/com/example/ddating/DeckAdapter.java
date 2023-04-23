@@ -1,6 +1,7 @@
 package com.example.ddating;
 
 import android.content.Context;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,7 +55,16 @@ public class DeckAdapter extends BaseAdapter {
         ((TextView) v.findViewById(R.id.idTVCourseDescription)).setText(courseData.get(position).getCourseDescription());
         ((TextView) v.findViewById(R.id.idTVCourseDuration)).setText(courseData.get(position).getCourseDuration());
         ((TextView) v.findViewById(R.id.idTVCourseTracks)).setText(courseData.get(position).getCourseTracks());
-        ((ImageView) v.findViewById(R.id.idIVCourse)).setImageResource(courseData.get(position).getImgId());
+
+        // ((ImageView) v.findViewById(R.id.idIVCourse)).setImageResource(courseData.get(position).getImgId());
+
+        if (courseData.get(position).getDogImage() == null ){
+            ((ImageView) v.findViewById(R.id.idIVCourse)).setImageResource(R.drawable.default_image);
+        } else {
+            ((ImageView) v.findViewById(R.id.idIVCourse)).setImageBitmap(courseData.get(position).getDogImage());
+        }
+
+
         return v;
     }
 }

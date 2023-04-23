@@ -40,6 +40,7 @@ import com.google.firebase.storage.StorageReference;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     // on below line we are creating variable
@@ -87,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
         cardStack = (SwipeDeck) findViewById(R.id.swipe_deck);
 
         // on below line we are adding data to our array list.
-        courseModalArrayList.add(new CourseModal("C++", "30 days", "20 Tracks", "C++ Self Paced Course", R.drawable.nickistare));
+        courseModalArrayList.add(new CourseModal("C++", "30 days", "20 Tracks", "C++ Self Paced Course", null));
 //        courseModalArrayList.add(new CourseModal("Java", "30 days", "20 Tracks", "Java Self Paced Course", R.drawable.uh));
 //        courseModalArrayList.add(new CourseModal("Python", "30 days", "20 Tracks", "Python Self Paced Course", R.drawable.patrick));
 //        courseModalArrayList.add(new CourseModal("DSA", "30 days", "20 Tracks", "DSA Self Paced Course", R.drawable.zoran));
@@ -105,9 +106,12 @@ public class MainActivity extends AppCompatActivity {
                     for (QueryDocumentSnapshot userDocument : userTask.getResult()) {
 
                         // Skip the current User
-                        if (userDocument.getId() == currentUser.getUid()) {
+                        if (userDocument.getId().equals(currentUser.getUid())) {
                             continue;
                         }
+
+                        // Log.d("Testing", "User : " + userDocument.getId().toString() + " " + currentUser.getUid().toString());
+
 
                         // Get all dog in the User
                         db.collection("Users").document(userDocument.getId()).collection("Dogs").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -124,11 +128,36 @@ public class MainActivity extends AppCompatActivity {
                                         String txt_dogImageURI = dogDocument.getString("DogImageURI");
 
                                         // Skip if the user not finish their dog profile
+
                                         if (txt_dogName.isEmpty()) {
                                             continue;
                                         }
 
-                                        courseModalArrayList.add(new CourseModal(txt_dogName, txt_dogType, txt_dogGender, txt_dogAge, R.drawable.default_image));
+                                        // Get Image
+                                        try {
+                                            File localFile = File.createTempFile("DogImage", "jpg");
+                                            FirebaseStorage.getInstance().getReference().child(txt_dogImageURI).getFile(localFile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                                                @Override
+                                                public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+
+                                                    Bitmap bitmap = BitmapFactory.decodeFile(localFile.getAbsolutePath());
+
+                                                    courseModalArrayList.add(new CourseModal(txt_dogName, txt_dogType, txt_dogGender, txt_dogAge, bitmap));
+                                                }
+                                            }).addOnFailureListener(new OnFailureListener() {
+                                                @Override
+                                                public void onFailure(@NonNull Exception e) {
+
+                                                }
+                                            });
+
+
+                                        } catch (IOException e) {
+                                            e.printStackTrace();
+                                        }
+
+
+                                        // courseModalArrayList.add(new CourseModal(txt_dogName, txt_dogType, txt_dogGender, txt_dogAge, null));
                                     }
                                 }
                             }
@@ -148,8 +177,6 @@ public class MainActivity extends AppCompatActivity {
         cardStack.setAdapter(adapter);
 
         // on below line we are setting event callback to our card stack.
-
-
         cardStack.setEventCallback(new SwipeDeck.SwipeEventCallback() {
             @Override
             public void cardSwipedLeft(int position) {

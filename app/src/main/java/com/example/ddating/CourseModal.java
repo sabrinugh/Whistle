@@ -1,5 +1,7 @@
 package com.example.ddating;
 
+import android.graphics.Bitmap;
+
 public class CourseModal {
 
     // variables for our coursename,
@@ -9,6 +11,10 @@ public class CourseModal {
     private String courseTracks;
     private String courseDescription;
 
+
+    // Get Image
+    private int imgId;
+
     public int getImgId() {
         return imgId;
     }
@@ -17,7 +23,17 @@ public class CourseModal {
         this.imgId = imgId;
     }
 
-    private int imgId;
+
+    private Bitmap dogImage;
+
+    public Bitmap getDogImage() {
+        return dogImage;
+    }
+
+    public void setDogImage(Bitmap dogImage) {
+        this.dogImage = dogImage;
+    }
+    // End Get Image
 
     // creating getter and setter methods
     public String getCourseName() {
@@ -53,11 +69,11 @@ public class CourseModal {
     }
 
     // constructor.
-    public CourseModal(String courseName, String courseDuration, String courseTracks, String courseDescription, int imgId) {
+    public CourseModal(String courseName, String courseDuration, String courseTracks, String courseDescription, Bitmap dogImage) {
         this.courseName = courseName;
         this.courseDuration = courseDuration;
         this.courseTracks = courseTracks;
         this.courseDescription = courseDescription;
-        this.imgId = imgId;
+        this.dogImage = dogImage;
     }
 }

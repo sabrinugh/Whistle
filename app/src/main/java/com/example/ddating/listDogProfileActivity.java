@@ -134,7 +134,6 @@ public class listDogProfileActivity extends AppCompatActivity {
                         // Get Image
                         try {
                             File localFile = File.createTempFile("DogImage", "jpg");
-
                             FirebaseStorage.getInstance().getReference().child(txt_dogImageURI).getFile(localFile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
                                 @Override
                                 public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
