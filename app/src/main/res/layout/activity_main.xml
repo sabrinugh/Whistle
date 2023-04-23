@@ -33,18 +33,18 @@
     </com.daprlabs.cardstack.SwipeFrameLayout>
 
     <Button
+        android:id="@+id/setting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/setting"
-        android:text="Setting"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        />
+        android:layout_marginEnd="156dp"
+        android:layout_marginBottom="70dp"
+        android:text="Setting" />
 
 
-
-
-<!--    <ImageView-->
+    <!--    <ImageView-->
 <!--        android:layout_width="150dp"-->
 <!--        android:layout_height="150dp"-->
 <!--        android:layout_centerHorizontal="true"-->

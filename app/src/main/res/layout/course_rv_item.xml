@@ -16,7 +16,7 @@
 
         <!--image view for course image-->
         <ImageView
-            android:id="@+id/idIVCourse"
+            android:id="@+id/DogName"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:scaleType="centerCrop" />
@@ -27,7 +27,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="3dp"
-            android:text="Course Name"
+            android:text="Name"
+            android:textAlignment="center"
             android:textColor="@color/black" />
 
         <LinearLayout
@@ -38,34 +39,37 @@
 
             <!--text view for our course tracks-->
             <TextView
-                android:id="@+id/idTVCourseTracks"
+                android:id="@+id/DogGender"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="3dp"
-                android:text="Course Tracks"
+                android:text="Gender"
+                android:textAlignment="center"
                 android:textColor="@color/black" />
 
             <!--text view for our course duration-->
             <TextView
-                android:id="@+id/idTVCourseDuration"
+                android:id="@+id/DogBreed"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="3dp"
-                android:text="Duration"
+                android:text="Breed"
+                android:textAlignment="center"
                 android:textColor="@color/black" />
 
         </LinearLayout>
 
         <!--text view for our course description-->
         <TextView
-            android:id="@+id/idTVCourseDescription"
+            android:id="@+id/DogAge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:padding="3dp"
-            android:text="Description"
+            android:text="Age"
+            android:textAlignment="center"
             android:textColor="@color/black" />
 
     </LinearLayout>

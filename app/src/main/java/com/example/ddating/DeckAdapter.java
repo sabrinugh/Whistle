@@ -1,7 +1,6 @@
 package com.example.ddating;
 
 import android.content.Context;
-import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,16 +51,16 @@ public class DeckAdapter extends BaseAdapter {
         }
         // on below line we are initializing our variables and setting data to our variables.
         ((TextView) v.findViewById(R.id.idTVCourseName)).setText(courseData.get(position).getCourseName());
-        ((TextView) v.findViewById(R.id.idTVCourseDescription)).setText(courseData.get(position).getCourseDescription());
-        ((TextView) v.findViewById(R.id.idTVCourseDuration)).setText(courseData.get(position).getCourseDuration());
-        ((TextView) v.findViewById(R.id.idTVCourseTracks)).setText(courseData.get(position).getCourseTracks());
+        ((TextView) v.findViewById(R.id.DogAge)).setText(courseData.get(position).getCourseDescription());
+        ((TextView) v.findViewById(R.id.DogBreed)).setText(courseData.get(position).getCourseDuration());
+        ((TextView) v.findViewById(R.id.DogGender)).setText(courseData.get(position).getCourseTracks());
 
         // ((ImageView) v.findViewById(R.id.idIVCourse)).setImageResource(courseData.get(position).getImgId());
 
         if (courseData.get(position).getDogImage() == null ){
-            ((ImageView) v.findViewById(R.id.idIVCourse)).setImageResource(R.drawable.default_image);
+            ((ImageView) v.findViewById(R.id.DogName)).setImageResource(R.drawable.default_image);
         } else {
-            ((ImageView) v.findViewById(R.id.idIVCourse)).setImageBitmap(courseData.get(position).getDogImage());
+            ((ImageView) v.findViewById(R.id.DogName)).setImageBitmap(courseData.get(position).getDogImage());
         }
 
 

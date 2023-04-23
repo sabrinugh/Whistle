@@ -43,9 +43,15 @@
 
     <EditText
         android:id="@+id/dogName"
-        android:layout_width="match_parent"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/txt_DogName"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="66dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="66dp"
         android:hint="Dog Name"
         android:textAlignment="center" />
 
@@ -61,9 +67,11 @@
 
     <EditText
         android:id="@+id/dogType"
-        android:layout_width="match_parent"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/txt_DogType"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="3dp"
         android:hint="Dog Type"
         android:textAlignment="center" />
 
@@ -77,14 +85,16 @@
         android:textAlignment="center"
         android:textSize="16dp" />
 
+
     <EditText
         android:id="@+id/gender"
-        android:layout_width="match_parent"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/txt_DogGender"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="3dp"
         android:hint="Gender"
         android:textAlignment="center" />
-
 
     <TextView
         android:id="@+id/txt_DogAge"
@@ -98,9 +108,11 @@
 
     <EditText
         android:id="@+id/age"
-        android:layout_width="match_parent"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/txt_DogAge"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="3dp"
         android:hint="Age"
         android:textAlignment="center" />
 
