@@ -4,12 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".addUserProfileActivity">
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/background"
-        android:scaleType="centerCrop"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -24,8 +20,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="300dp"
         android:layout_marginLeft="100dp"
+        android:layout_marginTop="300dp"
         android:layout_marginRight="100dp"
         android:hint="User Name"
         android:textAlignment="center" />
@@ -36,8 +32,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/gender"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="30dp"
         android:layout_marginLeft="100dp"
+        android:layout_marginTop="30dp"
         android:layout_marginRight="100dp"
         android:hint="Age"
         android:textAlignment="center" />
@@ -48,20 +44,20 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/userName"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="30dp"
-        android:hint="Gender"
         android:layout_marginLeft="100dp"
+        android:layout_marginTop="30dp"
         android:layout_marginRight="100dp"
+        android:hint="Gender"
         android:textAlignment="center" />
 
     <Button
+        android:id="@+id/addUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Create User Profile"
-        android:id="@+id/addUser"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="70dp"
-        android:background="@drawable/roundbutton"/>
+        android:background="@drawable/roundbutton"
+        android:text="Create User Profile" />
 
 </RelativeLayout>

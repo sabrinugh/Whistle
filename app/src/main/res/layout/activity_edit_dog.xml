@@ -4,12 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".editDogActivity">
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/background"
-        android:scaleType="centerCrop"/>
 
     <TextView
         android:id="@+id/title"
@@ -37,8 +33,8 @@
         android:layout_below="@+id/image"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:text="Image"
-        android:background="@drawable/roundbutton"/>
+        android:background="@drawable/roundbutton"
+        android:text="Image" />
 
     <TextView
         android:id="@+id/txt_DogName"
@@ -115,24 +111,23 @@
 
     <Button
         android:id="@+id/editDog"
-        android:layout_width="match_parent"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_above="@+id/deleteDog"
-        android:text="Edit Dog Profile"
-        android:layout_marginLeft="100dp"
-        android:layout_marginRight="100dp"
-        android:background="@drawable/roundbutton"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/roundbutton"
+        android:text="Edit Dog Profile" />
 
     <Button
         android:id="@+id/deleteDog"
-        android:layout_width="match_parent"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginRight="100dp"
-        android:text="Delete Dog"
-        android:background="@drawable/roundbutton"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="25dp"
+        android:background="@drawable/roundbutton"
+        android:text="Delete Dog" />
 
 
 </RelativeLayout>

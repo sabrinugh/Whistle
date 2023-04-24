@@ -4,12 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".listDogProfileActivity">
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/background"
-        android:scaleType="centerCrop"/>
 
     <TextView
         android:id="@+id/txt_ListDogTitle"
@@ -37,7 +33,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        android:text="Add"
-        android:background="@drawable/roundbutton"/>
+        android:background="@drawable/roundbutton"
+        android:text="Add" />
 
 </RelativeLayout>

@@ -4,12 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".addDogProfileActivity">
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/background"
-        android:scaleType="centerCrop"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -34,8 +30,8 @@
         android:layout_below="@+id/image"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:text="Image"
-        android:background="@drawable/roundbutton"/>
+        android:background="@drawable/roundbutton"
+        android:text="Image" />
 
     <TextView
         android:id="@+id/txt_DogName"
@@ -45,8 +41,7 @@
         android:layout_marginTop="30dp"
         android:text="Dog Name"
         android:textAlignment="center"
-        android:textSize="16dp"
-        />
+        android:textSize="16dp" />
 
     <EditText
         android:id="@+id/dogName"
@@ -129,8 +124,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="10dp"
-        android:text="Create Dog Profile"
-        android:background="@drawable/roundbutton"/>
+        android:layout_marginBottom="25dp"
+        android:background="@drawable/roundbutton"
+        android:text="Create Dog Profile" />
 
 </RelativeLayout>
