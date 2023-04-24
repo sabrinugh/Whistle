@@ -12,13 +12,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="3dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        >
 
         <!--image view for course image-->
         <ImageView
             android:id="@+id/DogName"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="300dp"
             android:scaleType="centerCrop" />
 
         <!--text view for our course name-->
