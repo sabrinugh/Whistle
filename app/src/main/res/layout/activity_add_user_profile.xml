@@ -5,6 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".addUserProfileActivity">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/background"
+        android:scaleType="centerCrop"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -56,6 +61,7 @@
         android:id="@+id/addUser"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="70dp"/>
+        android:layout_marginBottom="70dp"
+        android:background="@drawable/roundbutton"/>
 
 </RelativeLayout>
