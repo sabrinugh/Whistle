@@ -102,7 +102,7 @@ public class settinPage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
-                Toast.makeText(settinPage.this, "Logged Out", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(settinPage.this, "Logged Out", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(settinPage.this, startActivity.class));
                 finish();
             }

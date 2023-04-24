@@ -180,37 +180,37 @@ public class MainActivity extends AppCompatActivity {
         cardStack.setAdapter(adapter);
 
         // on below line we are setting event callback to our card stack.
-        cardStack.setEventCallback(new SwipeDeck.SwipeEventCallback() {
-            @Override
-            public void cardSwipedLeft(int position) {
-                // on card swipe left we are displaying a toast message.
-                Toast.makeText(MainActivity.this, "Card Swiped Left", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void cardSwipedRight(int position) {
-                // on card swiped to right we are displaying a toast message.
-                Toast.makeText(MainActivity.this, "Card Swiped Right", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void cardsDepleted() {
-                // this method is called when no card is present
-                Toast.makeText(MainActivity.this, "No more courses present", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void cardActionDown() {
-                // this method is called when card is swiped down.
-                Log.i("TAG", "CARDS MOVED DOWN");
-            }
-
-            @Override
-            public void cardActionUp() {
-                // this method is called when card is moved up.
-                Log.i("TAG", "CARDS MOVED UP");
-            }
-        });
+//        cardStack.setEventCallback(new SwipeDeck.SwipeEventCallback() {
+//            @Override
+//            public void cardSwipedLeft(int position) {
+//                // on card swipe left we are displaying a toast message.
+//                Toast.makeText(MainActivity.this, "Card Swiped Left", Toast.LENGTH_SHORT).show();
+//            }
+//
+//            @Override
+//            public void cardSwipedRight(int position) {
+//                // on card swiped to right we are displaying a toast message.
+//                Toast.makeText(MainActivity.this, "Card Swiped Right", Toast.LENGTH_SHORT).show();
+//            }
+//
+//            @Override
+//            public void cardsDepleted() {
+//                // this method is called when no card is present
+//                Toast.makeText(MainActivity.this, "No more courses present", Toast.LENGTH_SHORT).show();
+//            }
+//
+//            @Override
+//            public void cardActionDown() {
+//                // this method is called when card is swiped down.
+//                Log.i("TAG", "CARDS MOVED DOWN");
+//            }
+//
+//            @Override
+//            public void cardActionUp() {
+//                // this method is called when card is moved up.
+//                Log.i("TAG", "CARDS MOVED UP");
+//            }
+//        });
     }
 
     //
