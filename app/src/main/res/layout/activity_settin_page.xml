@@ -53,35 +53,35 @@
 
     <Button
         android:id="@+id/logOut"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="136dp"
+        android:layout_height="16dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="108dp"
+        android:layout_marginStart="147dp"
         android:layout_marginLeft="100dp"
-        android:layout_marginTop="660dp"
-        android:layout_marginEnd="105dp"
+        android:layout_marginTop="675dp"
+        android:layout_marginEnd="128dp"
         android:layout_marginRight="100dp"
-        android:layout_marginBottom="20dp"
-        android:text="Log Out"
-        android:background="@drawable/roundbutton"/>
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/roundbutton"
+        android:text="Log Out" />
 
     <Button
         android:id="@+id/deleteAccount"
-        android:layout_width="104dp"
-        android:layout_height="55dp"
+        android:layout_width="108dp"
+        android:layout_height="8dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="297dp"
+        android:layout_marginStart="294dp"
         android:layout_marginTop="11dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="664dp"
-        android:text="Delete"
-        android:background="@drawable/roundbutton"/>
+        android:layout_marginEnd="9dp"
+        android:layout_marginBottom="712dp"
+        android:background="@drawable/roundbutton"
+        android:text="Delete" />
 
 </RelativeLayout>
