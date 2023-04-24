@@ -1,6 +1,7 @@
 package com.example.ddating;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,6 +61,7 @@ public class DeckAdapter extends BaseAdapter {
         if (courseData.get(position).getDogImage() == null ){
             ((ImageView) v.findViewById(R.id.DogName)).setImageResource(R.drawable.default_image);
         } else {
+            // on below line we are initializing our variables and setting data to our variables.
             ((ImageView) v.findViewById(R.id.DogName)).setImageBitmap(courseData.get(position).getDogImage());
         }
 
