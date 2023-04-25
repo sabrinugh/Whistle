@@ -28,6 +28,7 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.Date;
 import java.util.HashMap;
 
 public class addDogProfileActivity extends AppCompatActivity {
@@ -132,12 +133,14 @@ public class addDogProfileActivity extends AppCompatActivity {
         listRef.listAll().addOnSuccessListener(new OnSuccessListener<ListResult>() {
             @Override
             public void onSuccess(ListResult listResult) {
-                int dogImageStorageSize = listResult.getItems().size();
+                // int dogImageStorageSize = listResult.getItems().size();
 
-                StorageReference fileRef = FirebaseStorage.getInstance().getReference().child("DogImages").child(Integer.toString(dogImageStorageSize + 1));
+                Date date = new Date(System.currentTimeMillis());
+
+                StorageReference fileRef = FirebaseStorage.getInstance().getReference().child("DogImages").child(date.toString());
 
                 // Store Data
-                upLoadData(dogImageStorageSize + 1);
+                upLoadData(date.toString());
 
                 fileRef.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
@@ -155,7 +158,7 @@ public class addDogProfileActivity extends AppCompatActivity {
 
     }
 
-    private void upLoadData(int StorageSize) {
+    private void upLoadData(String StorageSize) {
         CollectionReference userDog = FirebaseFirestore.getInstance().collection("Users");
 
         // Get Data
@@ -165,7 +168,7 @@ public class addDogProfileActivity extends AppCompatActivity {
         String txt_age = age.getText().toString();
         // int int_age = Integer.parseInt(txt_age);
 
-        String txt_dogImageURI = "DogImages/" + Integer.toString(StorageSize);
+        String txt_dogImageURI = "DogImages/" + StorageSize;
 
         HashMap<String, Object> map = new HashMap<>();
         map.put("dogName", txt_dogName);
