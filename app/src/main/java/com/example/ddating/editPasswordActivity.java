@@ -24,6 +24,8 @@ public class editPasswordActivity extends AppCompatActivity {
     private EditText newPassword1;
     private Button submitPassword;
 
+    private Button back;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,10 +35,19 @@ public class editPasswordActivity extends AppCompatActivity {
         title = findViewById(R.id.title);
         newPassword1 = findViewById(R.id.newPassword1);
         submitPassword = findViewById(R.id.submitPassword);
+        back = findViewById(R.id.back);
 
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
         // Variable
+
+        // go back to previous activity
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(editPasswordActivity.this, settinPage.class));
+            }
+        });
 
         // Change password
         submitPassword.setOnClickListener(new View.OnClickListener() {

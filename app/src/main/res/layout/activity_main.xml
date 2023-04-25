@@ -5,13 +5,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity"
-    >
+    tools:context=".MainActivity">
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/background"
         android:scaleType="centerCrop"/>
+
+    <ImageView
+        android:id="@+id/whistlewriting"
+        android:layout_width="270dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="-40dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/whistlewriting" />
+
+    <ImageView
+        android:id="@+id/whistlpic"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="-60dp"
+        android:layout_marginTop="-10dp"
+        android:layout_toRightOf="@+id/whistlewriting"
+        android:src="@drawable/whistlepic"
+        android:scaleType="centerCrop" />
 
     <!--on below line we are creating a swipe
         frame layout for providing a swipe action-->
@@ -29,6 +47,7 @@
         <com.daprlabs.cardstack.SwipeDeck
             android:id="@+id/swipe_deck"
             android:layout_width="match_parent"
+            android:layout_marginTop="90dp"
             android:layout_height="480dp"
             android:padding="20dp"
             swipedeck:card_spacing="10dp"
@@ -43,10 +62,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginEnd="156dp"
-        android:layout_marginBottom="70dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
         android:background="@drawable/roundbutton"
         android:text="Settings" />
     

@@ -5,63 +5,120 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".addUserProfileActivity">
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/background"
         android:scaleType="centerCrop"/>
 
+    <ImageView
+        android:id="@+id/whistlewriting"
+        android:layout_width="270dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="-40dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/whistlewriting" />
+
+    <ImageView
+        android:id="@+id/whistlpic"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="-60dp"
+        android:layout_marginTop="-10dp"
+        android:layout_toRightOf="@+id/whistlewriting"
+        android:src="@drawable/whistlepic"
+        android:scaleType="centerCrop" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
+        android:layout_below="@+id/whistlewriting"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="20dp"
         android:text="Some Details About You"
-        android:textSize="25dp" />
+        android:textSize="25dp"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:fontFamily="@font/aclonica" />
+
+    <TextView
+        android:id="@+id/nametitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="280dp"
+        android:layout_marginLeft="20dp"
+        android:fontFamily="@font/aclonica"
+        android:text="Name"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="#000000" />
 
     <EditText
         android:id="@+id/userName"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="300dp"
-        android:layout_marginLeft="100dp"
+        android:layout_height="48dp"
+        android:layout_below="@+id/nametitle"
+        android:layout_marginLeft="20dp"
         android:layout_marginRight="100dp"
-        android:hint="User Name"
-        android:textAlignment="center" />
+        android:hint="Enter Here"
+        android:backgroundTint="@android:color/transparent" />
+
+    <TextView
+        android:id="@+id/agetitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/userName"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/aclonica"
+        android:text="Age"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="#000000" />
 
     <EditText
         android:id="@+id/age"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/gender"
+        android:layout_height="48dp"
+        android:layout_below="@id/agetitle"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="100dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginRight="100dp"
-        android:hint="Age"
-        android:textAlignment="center" />
+        android:hint="Enter Here"
+        android:backgroundTint="@android:color/transparent" />
+
+    <TextView
+        android:id="@+id/gendertitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/age"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:fontFamily="@font/aclonica"
+        android:text="Gender"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="#000000" />
 
     <EditText
         android:id="@+id/gender"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/userName"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="30dp"
-        android:hint="Gender"
-        android:layout_marginLeft="100dp"
+        android:layout_height="48dp"
+        android:layout_below="@+id/gendertitle"
+        android:hint="Enter Here"
+        android:layout_marginLeft="20dp"
         android:layout_marginRight="100dp"
-        android:textAlignment="center" />
+        android:backgroundTint="@android:color/transparent" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Create User Profile"
+        android:text="Create"
         android:id="@+id/addUser"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@id/gender"
+        android:layout_marginTop="15dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="70dp"
         android:background="@drawable/roundbutton"/>
 
 </RelativeLayout>

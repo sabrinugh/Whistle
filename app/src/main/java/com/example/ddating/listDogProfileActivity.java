@@ -39,6 +39,8 @@ public class listDogProfileActivity extends AppCompatActivity {
 
     private Button addDog;
 
+    private Button back;
+
     private ListView listDog;
     private List<String> list_dogID = new ArrayList<String>();
     private List<String> list_dogName = new ArrayList<String>();
@@ -59,6 +61,7 @@ public class listDogProfileActivity extends AppCompatActivity {
         listDog = findViewById(R.id.listDog);
 
         // Variable
+        back = findViewById(R.id.back);
 
         // Get Dog Data
         getDogProfiles();
@@ -72,6 +75,14 @@ public class listDogProfileActivity extends AppCompatActivity {
             public void onClick(View view) {
                 startActivity(new Intent(listDogProfileActivity.this, addDogProfileActivity.class));
                 finish();
+            }
+        });
+
+        // back to settings activity
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(listDogProfileActivity.this, settinPage.class));
             }
         });
 

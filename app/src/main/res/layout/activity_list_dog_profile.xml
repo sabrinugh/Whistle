@@ -5,29 +5,57 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".listDogProfileActivity">
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/background"
         android:scaleType="centerCrop"/>
 
+    <ImageView
+        android:id="@+id/whistlewriting"
+        android:layout_width="270dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="-40dp"
+        android:src="@drawable/whistlewriting"
+        android:scaleType="centerCrop" />
+
     <TextView
         android:id="@+id/txt_ListDogTitle"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="@font/aclonica"
         android:text="Dog Profiles"
-        android:textAlignment="center"
-        android:textSize="24dp" />
+        android:textColor="#000000"
+        android:textSize="24dp"
+        android:textStyle="bold" />
 
     <ListView
         android:id="@+id/listDog"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txt_ListDogTitle"
-        android:layout_margin="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
         android:paddingLeft="10dp"
         tools:listitem="@layout/list_dog_item" />
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:text="BACK"
+        android:background="@drawable/roundbutton"
+
+        />
 
     <Button
         android:id="@+id/addDog"

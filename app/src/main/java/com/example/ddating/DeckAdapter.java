@@ -59,7 +59,7 @@ public class DeckAdapter extends BaseAdapter {
         // ((ImageView) v.findViewById(R.id.idIVCourse)).setImageResource(courseData.get(position).getImgId());
 
         if (courseData.get(position).getDogImage() == null ){
-            ((ImageView) v.findViewById(R.id.DogName)).setImageResource(R.drawable.default_image);
+            ((ImageView) v.findViewById(R.id.DogName)).setImageResource(R.drawable.placeholder);
         } else {
             // on below line we are initializing our variables and setting data to our variables.
             ((ImageView) v.findViewById(R.id.DogName)).setImageBitmap(courseData.get(position).getDogImage());

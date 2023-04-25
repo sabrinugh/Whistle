@@ -1,22 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".settinPage">
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/background"
         android:scaleType="centerCrop"/>
 
+    <ImageView
+        android:id="@+id/whistlebend"
+        android:layout_width="300dp"
+        android:layout_height="160dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/whistlebend"
+        android:layout_marginRight="10dp"
+        android:scaleType="centerCrop"/>
+
+    <ImageView
+        android:id="@+id/paw"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/paw"
+        android:layout_marginRight="10dp"
+        android:scaleType="centerCrop"
+        android:alpha="0.3"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="170dp"
+        android:layout_marginLeft="86dp"
+        android:text="Welcome"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        android:fontFamily="@font/aclonica"
+        android:textColor="#000000"
+        />
+
     <TextView
         android:id="@+id/userID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="300dp"
+        android:layout_marginLeft="209dp"
+        android:layout_marginTop="170dp"
         android:text="User ID"
-        android:textSize="24dp" />
+        android:textSize="24dp"
+        android:textStyle="bold"
+        android:fontFamily="@font/aclonica"
+        android:textColor="#000000"
+        />
 
     <Button
         android:id="@+id/editPassword"
@@ -25,7 +62,7 @@
         android:layout_below="@id/userID"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="100dp"
         android:text="Edit Password"
         android:background="@drawable/roundbutton"/>
 
@@ -53,35 +90,34 @@
 
     <Button
         android:id="@+id/logOut"
-        android:layout_width="136dp"
-        android:layout_height="16dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="147dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="675dp"
-        android:layout_marginEnd="128dp"
-        android:layout_marginRight="100dp"
-        android:layout_marginBottom="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/roundbutton"
         android:text="Log Out" />
 
     <Button
         android:id="@+id/deleteAccount"
-        android:layout_width="108dp"
-        android:layout_height="8dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="294dp"
-        android:layout_marginTop="11dp"
-        android:layout_marginEnd="9dp"
-        android:layout_marginBottom="712dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
         android:background="@drawable/roundbutton"
         android:text="Delete" />
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/roundbutton"
+        android:text="Back" />
 
 </RelativeLayout>

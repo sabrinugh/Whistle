@@ -12,10 +12,28 @@
         android:src="@drawable/background"
         android:scaleType="centerCrop"/>
 
+    <ImageView
+        android:id="@+id/whistlebend"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:src="@drawable/whistlebend"
+        android:layout_marginRight="10dp"
+        android:scaleType="centerCrop"/>
+
+    <ImageView
+        android:id="@+id/whistlepic"
+        android:layout_width="wrap_content"
+        android:layout_height="310dp"
+        android:src="@drawable/whistlepic"
+        android:layout_below="@+id/whistlebend"
+        android:scaleType="centerCrop"
+        />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@id/whistlepic"
+        android:layout_marginTop="20dp"
         android:padding="16dp">
 
         <Button
@@ -25,7 +43,8 @@
             android:id="@+id/register"
             android:textColor="#FFFFFF"
             android:layout_marginLeft="100dp"
-            android:layout_marginRight="100dp"/>
+            android:layout_marginRight="100dp"
+            android:background="@drawable/roundbutton" />
 
         <Button
             android:layout_width="match_parent"
@@ -36,6 +55,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginLeft="100dp"
             android:layout_marginRight="100dp"
+            android:background="@drawable/roundbutton"
             android:textColor="#FFFFFF"/>
 
     </RelativeLayout>

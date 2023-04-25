@@ -49,6 +49,8 @@ public class editDogActivity extends AppCompatActivity {
     private Button editImage;
     private Button deleteDog;
 
+    private Button back;
+
     private Uri imageUri;
     private static final int IMAGE_REQUEST = 2;
 
@@ -69,6 +71,8 @@ public class editDogActivity extends AppCompatActivity {
         editImage = findViewById(R.id.editImage);
         editDog = findViewById(R.id.editDog);
         deleteDog = findViewById(R.id.deleteDog);
+
+        back = findViewById(R.id.back);
 
         Bundle extras = getIntent().getExtras();
         String currentDogID = extras.getString("dogID");
@@ -108,6 +112,14 @@ public class editDogActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 deleteDogProfile(currentDogID, dogImageURI);
+            }
+        });
+
+        // go back to previous activity
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(editDogActivity.this, settinPage.class));
             }
         });
 

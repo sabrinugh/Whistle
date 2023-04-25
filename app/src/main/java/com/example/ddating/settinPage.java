@@ -43,6 +43,7 @@ public class settinPage extends AppCompatActivity {
 
     private Button logOut;
     private Button deleteAccount;
+    private Button back;
 
 
     @Override
@@ -60,6 +61,7 @@ public class settinPage extends AppCompatActivity {
 
         logOut = findViewById(R.id.logOut);
         deleteAccount = findViewById(R.id.deleteAccount);
+        back = findViewById(R.id.back);
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -94,6 +96,14 @@ public class settinPage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(settinPage.this, listDogProfileActivity.class));
+            }
+        });
+
+        // Main activity
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(settinPage.this, MainActivity.class));
             }
         });
 

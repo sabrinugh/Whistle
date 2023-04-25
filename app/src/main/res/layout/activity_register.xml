@@ -4,18 +4,45 @@
     android:id="@+id/register_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/background"
         android:scaleType="centerCrop"/>
 
+    <TextView
+        android:id="@+id/signuptitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign Up"
+        android:textAlignment="center"
+        android:fontFamily="@font/aclonica"
+        android:textSize="80dp"
+        android:textColor="#000000"
+        android:layout_marginTop="30dp"/>
+
+    <TextView
+        android:id="@+id/signupdesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="10dp"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:fontFamily="@font/aclonica"
+        android:layout_below="@+id/signuptitle"
+        android:text="Join us today and experience the benefits of our exclusive community!\nWhat are you waiting for? Sign up and get swiping!" />
+
     <EditText
         android:id="@+id/email"
         android:layout_width="280dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_centerInParent="true"
-        android:layout_marginTop="100dp"
+        android:layout_below="@+id/signupdesc"
+        android:layout_marginTop="80dp"
         android:hint="Email"
         android:imeOptions="actionNext"
         android:inputType="textEmailAddress"
@@ -25,7 +52,7 @@
     <EditText
         android:id="@+id/password"
         android:layout_width="280dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:hint="Password"
         android:inputType="textPassword"
         android:maxLines="1"
@@ -33,16 +60,41 @@
         android:imeOptions="actionDone"
         android:layout_below="@id/email"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginTop="20dp"/>
 
     <Button
         android:id="@+id/register"
-        android:layout_width="280dp"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:text="Register"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/password"
+        android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="50dp"
         android:background="@drawable/roundbutton"/>
+
+    <TextView
+        android:id="@+id/yesaccounttext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="40dp"
+        android:textColor="#000000"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:fontFamily="@font/aclonica"
+        android:text="Already have an account?" />
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/yesaccounttext"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/roundbutton"
+        android:text="LOGIN"
+        />
 
 </RelativeLayout>

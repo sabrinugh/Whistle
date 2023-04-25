@@ -29,6 +29,7 @@ public class editUserActivity extends AppCompatActivity {
     private EditText editUserGender;
     private EditText editUserAge;
     private Button editUserBotton;
+    private Button back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,7 @@ public class editUserActivity extends AppCompatActivity {
         editUserGender = findViewById(R.id.editUserGender);
         editUserAge = findViewById(R.id.editUserAge);
         editUserBotton = findViewById(R.id.editUserButton);
+        back = findViewById(R.id.back);
 
         // Variable
 
@@ -51,6 +53,14 @@ public class editUserActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 upDateUser();
+            }
+        });
+
+        // go back to previous activity
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(editUserActivity.this, settinPage.class));
             }
         });
 
