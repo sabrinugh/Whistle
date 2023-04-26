@@ -88,12 +88,6 @@ public class addDogProfileActivity extends AppCompatActivity {
 
                 // Storage Image
                 upLoadImageAndData();
-
-                Toast.makeText(addDogProfileActivity.this, "Dog Added !", Toast.LENGTH_SHORT).show();
-
-                startActivity(new Intent(addDogProfileActivity.this, MainActivity.class));
-                finish();
-
             }
         });
     }
@@ -140,26 +134,40 @@ public class addDogProfileActivity extends AppCompatActivity {
                 StorageReference fileRef = FirebaseStorage.getInstance().getReference().child("DogImages").child(date.toString());
 
                 // Store Data
-                upLoadData(date.toString());
 
-                fileRef.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                    @Override
-                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        Log.d("Message", taskSnapshot.toString());
+                if (imageUri == null) {
+                    Toast.makeText(addDogProfileActivity.this, "Can't missing Image ! ", Toast.LENGTH_SHORT).show();
+                } else {
+                    if (upLoadData(date.toString())) {
+                        fileRef.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                            @Override
+                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                Log.d("Message", taskSnapshot.toString());
+
+                                Toast.makeText(addDogProfileActivity.this, "Dog Added !", Toast.LENGTH_SHORT).show();
+
+                                startActivity(new Intent(addDogProfileActivity.this, MainActivity.class));
+                                finish();
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Log.d("ERROR", e.toString());
+                            }
+                        });
                     }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.d("ERROR", e.toString());
-                    }
-                });
+                }
+
+
             }
         });
 
     }
 
-    private void upLoadData(String StorageSize) {
+    private boolean upLoadData(String StorageSize) {
         CollectionReference userDog = FirebaseFirestore.getInstance().collection("Users");
+
+        boolean upLoadData_b = true;
 
         // Get Data
         String txt_dogName = dogName.getText().toString();
@@ -170,15 +178,44 @@ public class addDogProfileActivity extends AppCompatActivity {
 
         String txt_dogImageURI = "DogImages/" + StorageSize;
 
-        HashMap<String, Object> map = new HashMap<>();
-        map.put("dogName", txt_dogName);
-        map.put("dogType", txt_dogType);
-        map.put("gender", txt_gender);
-        map.put("age", txt_age);
-        map.put("DogImageURI", txt_dogImageURI);
+        if (txt_dogName.isEmpty() || txt_dogType.isEmpty() || txt_gender.isEmpty() || txt_age.isEmpty()) {
+            Toast.makeText(addDogProfileActivity.this, "Can't missing any input !", Toast.LENGTH_SHORT).show();
+            upLoadData_b = false;
+            return false;
+        }  else {
+            try {
+                int number = Integer.parseInt(txt_age);
 
-        userDog.document(currentUser.getUid()).collection("Dogs").document().set(map);
-        map.clear();
+                if (number < 0) {
+                    Toast.makeText(addDogProfileActivity.this, "Age at least 0", Toast.LENGTH_SHORT).show();
+                    upLoadData_b = false;
+                    return false;
+                } else if (number > 50) {
+                    Toast.makeText(addDogProfileActivity.this, "How can your dog survive over 50 years", Toast.LENGTH_SHORT).show();
+                    upLoadData_b = false;
+                    return false;
+                }
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+                Toast.makeText(addDogProfileActivity.this, "Integer Only in Age", Toast.LENGTH_SHORT).show();
+                upLoadData_b = false;
+                return false;
+            }
+        }
 
+
+        if (upLoadData_b) {
+            HashMap<String, Object> map = new HashMap<>();
+            map.put("dogName", txt_dogName);
+            map.put("dogType", txt_dogType);
+            map.put("gender", txt_gender);
+            map.put("age", txt_age);
+            map.put("DogImageURI", txt_dogImageURI);
+
+            userDog.document(currentUser.getUid()).collection("Dogs").document().set(map);
+            map.clear();
+        }
+
+        return true;
     }
 }

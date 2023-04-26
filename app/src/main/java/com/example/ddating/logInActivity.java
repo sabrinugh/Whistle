@@ -45,7 +45,12 @@ public class logInActivity extends AppCompatActivity {
                 String txt_email = email.getText().toString();
                 String txt_password = password.getText().toString();
 
-                logInUser(txt_email, txt_password);
+                if (txt_email.isEmpty() || txt_password.isEmpty()) {
+                    Toast.makeText(logInActivity.this, "Can't not missing any input !", Toast.LENGTH_SHORT).show();
+                } else {
+                    logInUser(txt_email, txt_password);
+                }
+
             }
         });
     }

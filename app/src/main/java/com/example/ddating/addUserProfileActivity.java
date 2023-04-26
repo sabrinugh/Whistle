@@ -1,6 +1,7 @@
 package com.example.ddating;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.ImageDecoderKt;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -52,23 +53,50 @@ public class addUserProfileActivity extends AppCompatActivity {
 
                 CollectionReference users = db.collection("Users");
 
+                boolean addUser_b = true;
+
                 String txt_userName = userName.getText().toString();
                 String txt_gender = gender.getText().toString();
                 String txt_age = age.getText().toString();
                 // int int_age = Integer.parseInt(txt_age);
 
-                HashMap<String, Object> map = new HashMap<>();
-                map.put("userName", txt_userName);
-                map.put("gender", txt_gender);
-                map.put("age", txt_age);
+                if (txt_userName.isEmpty() || txt_age.isEmpty() || txt_gender.isEmpty()) {
+                    Toast.makeText(addUserProfileActivity.this, "Can't missing any input !", Toast.LENGTH_SHORT).show();
+                    addUser_b = false;
+                } else {
+                    try {
+                        int number = Integer.parseInt(txt_age);
 
-                users.document(currentUser.getUid()).set(map);
-                map.clear();
+                        if (number < 18) {
+                            Toast.makeText(addUserProfileActivity.this, "Age need to over 18", Toast.LENGTH_SHORT).show();
+                            addUser_b = false;
+                        } else if (number > 125) {
+                            Toast.makeText(addUserProfileActivity.this, "How can you survive over 125 years", Toast.LENGTH_SHORT).show();
+                            addUser_b = false;
+                        }
+                    } catch (NumberFormatException e) {
+                        e.printStackTrace();
+                        addUser_b = false;
+                        Toast.makeText(addUserProfileActivity.this, "Integer Only in Age", Toast.LENGTH_SHORT).show();
+                    }
+                }
 
-                Toast.makeText(addUserProfileActivity.this, "User Added !", Toast.LENGTH_SHORT).show();
 
-                startActivity(new Intent(addUserProfileActivity.this, addDogProfileActivity.class));
-                finish();
+
+                if (addUser_b) {
+                    HashMap<String, Object> map = new HashMap<>();
+                    map.put("userName", txt_userName);
+                    map.put("gender", txt_gender);
+                    map.put("age", txt_age);
+
+                    users.document(currentUser.getUid()).set(map);
+                    map.clear();
+
+                    Toast.makeText(addUserProfileActivity.this, "User Added !", Toast.LENGTH_SHORT).show();
+
+                    startActivity(new Intent(addUserProfileActivity.this, addDogProfileActivity.class));
+                    finish();
+                }
 
             }
         });

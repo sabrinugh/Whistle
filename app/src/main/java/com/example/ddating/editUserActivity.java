@@ -61,39 +61,60 @@ public class editUserActivity extends AppCompatActivity {
         String txt_newUserGender = editUserGender.getText().toString();
         String txt_newUserAge = editUserAge.getText().toString();
 
-        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        boolean upDateUser_b = true;
 
-        WriteBatch batch = db.batch();
 
-        DocumentReference newUserRef = db.collection("Users").document(currentUser.getUid());
-        batch.update(newUserRef, "userName", txt_newUserName);
-        batch.update(newUserRef, "gender", txt_newUserGender);
-        batch.update(newUserRef, "age", txt_newUserAge);
+        if (txt_newUserName.isEmpty()) {
+            Toast.makeText(editUserActivity.this, "Missing User Name !", Toast.LENGTH_SHORT).show();
+            upDateUser_b = false;
+        }
 
-        // Upload Data
-        batch.commit().addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()) {
-                    Toast.makeText(editUserActivity.this, "User Profile Updated", Toast.LENGTH_SHORT).show();
-                    Log.d("Message", "Data Uploaded");
+        if (txt_newUserGender.isEmpty()) {
+            Toast.makeText(editUserActivity.this, "Missing User Gender !", Toast.LENGTH_SHORT).show();
+            upDateUser_b = false;
+        }
 
-                    // Back to Setting Activity
-                    startActivity(new Intent(editUserActivity.this, settinPage.class));
-                    finish();
-                } else {
-                    Toast.makeText(editUserActivity.this, "Failed to Upload", Toast.LENGTH_SHORT).show();
-                    Log.d("ERROR","Not able to upload Data");
+        if (txt_newUserAge.isEmpty()) {
+            Toast.makeText(editUserActivity.this, "Missing User Age !", Toast.LENGTH_SHORT).show();
+            upDateUser_b = false;
+        }
+
+        if (upDateUser_b) {
+            FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+            WriteBatch batch = db.batch();
+
+            DocumentReference newUserRef = db.collection("Users").document(currentUser.getUid());
+            batch.update(newUserRef, "userName", txt_newUserName);
+            batch.update(newUserRef, "gender", txt_newUserGender);
+            batch.update(newUserRef, "age", txt_newUserAge);
+
+            // Upload Data
+            batch.commit().addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(editUserActivity.this, "User Profile Updated", Toast.LENGTH_SHORT).show();
+                        Log.d("Message", "Data Uploaded");
+
+                        // Back to Setting Activity
+                        startActivity(new Intent(editUserActivity.this, settinPage.class));
+                        finish();
+                    } else {
+                        Toast.makeText(editUserActivity.this, "Failed to Upload", Toast.LENGTH_SHORT).show();
+                        Log.d("ERROR","Not able to upload Data");
+                    }
                 }
-            }
-        }).addOnFailureListener(new OnFailureListener() { // Fail to connect
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(editUserActivity.this, "Not able to connect to DataBase", Toast.LENGTH_SHORT).show();
-                Log.d("ERROR", e.toString());
-            }
-        });
+            }).addOnFailureListener(new OnFailureListener() { // Fail to connect
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(editUserActivity.this, "Not able to connect to DataBase", Toast.LENGTH_SHORT).show();
+                    Log.d("ERROR", e.toString());
+                }
+            });
+        }
+
     }
 
     private void GetUserProfile() {
@@ -111,6 +132,8 @@ public class editUserActivity extends AppCompatActivity {
                     String txt_newUserName = task.getResult().getString("userName");
                     String txt_newUserGender = task.getResult().getString("gender");
                     String txt_newUserAge = task.getResult().getString("age");
+
+
 
                     editUserName.setText(txt_newUserName);
                     editUserGender.setText(txt_newUserGender);

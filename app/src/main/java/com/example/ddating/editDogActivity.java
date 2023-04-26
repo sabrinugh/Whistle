@@ -166,52 +166,74 @@ public class editDogActivity extends AppCompatActivity {
     // Upload Data Functions
     private void upLoadNewData(String currentDogID, String dogImageURI) {
 
+        boolean upLoadNewData_b = true;
+
         String txt_dogName = dogName.getText().toString();
         String txt_dogType = dogType.getText().toString();
         String txt_dogGender = gender.getText().toString();
         String txt_dogAge = age.getText().toString();
 
-        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        if (txt_dogName.isEmpty()) {
+            Toast.makeText(editDogActivity.this, "Dog Name can't be empty", Toast.LENGTH_SHORT).show();
+            upLoadNewData_b = false;
+        }
+        else if (txt_dogType.isEmpty()) {
+            Toast.makeText(editDogActivity.this, "Dog Name Type be empty", Toast.LENGTH_SHORT).show();
+            upLoadNewData_b = false;
+        }
+        else if(txt_dogGender.isEmpty()) {
+            Toast.makeText(editDogActivity.this, "Dog Gender can't be empty", Toast.LENGTH_SHORT).show();
+            upLoadNewData_b = false;
+        }
+        else if (txt_dogAge.isEmpty()) {
+            Toast.makeText(editDogActivity.this, "Dog Age can't be empty", Toast.LENGTH_SHORT).show();
+            upLoadNewData_b = false;
+        }
 
-        WriteBatch batch = db.batch();
+        if (upLoadNewData_b) {
 
-        DocumentReference newDogRef = db.collection("Users").document(currentUser.getUid()).collection("Dogs").document(currentDogID);
-        batch.update(newDogRef, "dogName", txt_dogName);
-        batch.update(newDogRef, "dogType", txt_dogType);
-        batch.update(newDogRef, "gender", txt_dogGender);
-        batch.update(newDogRef, "age", txt_dogAge);
+            FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-        batch.commit().addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
+            WriteBatch batch = db.batch();
 
-                if (task.isSuccessful()) {
+            DocumentReference newDogRef = db.collection("Users").document(currentUser.getUid()).collection("Dogs").document(currentDogID);
+            batch.update(newDogRef, "dogName", txt_dogName);
+            batch.update(newDogRef, "dogType", txt_dogType);
+            batch.update(newDogRef, "gender", txt_dogGender);
+            batch.update(newDogRef, "age", txt_dogAge);
 
-                    Toast.makeText(editDogActivity.this, "Dog Profile Updated", Toast.LENGTH_SHORT).show();
-                    Log.d("Message", "Data Uploaded");
+            batch.commit().addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
 
-                    // Upload Image
-                    if (imageUri != null) {
-                        upLoadImage(dogImageURI);
+                    if (task.isSuccessful()) {
+
+                        Toast.makeText(editDogActivity.this, "Dog Profile Updated", Toast.LENGTH_SHORT).show();
+                        Log.d("Message", "Data Uploaded");
+
+                        // Upload Image
+                        if (imageUri != null) {
+                            upLoadImage(dogImageURI);
+                        }
+
+                        // Back To Main Activity
+                        startActivity(new Intent(editDogActivity.this, MainActivity.class));
+                        finish();
+                    } else {
+                        Toast.makeText(editDogActivity.this, "Failed to Upload", Toast.LENGTH_SHORT).show();
+                        Log.d("ERROR", "Not able to upload Data");
                     }
 
-                    // Back To Main Activity
-                    startActivity(new Intent(editDogActivity.this, MainActivity.class));
-                    finish();
-                } else {
-                    Toast.makeText(editDogActivity.this, "Failed to Upload", Toast.LENGTH_SHORT).show();
-                    Log.d("ERROR", "Not able to upload Data");
                 }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Log.d("ERROR", e.toString());
+                }
+            });
 
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Log.d("ERROR", e.toString());
-            }
-        });
-
+        }
     }
 
     // Upload Image Functions
@@ -219,17 +241,23 @@ public class editDogActivity extends AppCompatActivity {
 
         StorageReference fileRef = FirebaseStorage.getInstance().getReference().child(dogImageURI);
 
-        fileRef.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                Log.d("Message", taskSnapshot.toString());
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Log.d("ERROR", e.toString());
-            }
-        });
+        if (imageUri != null) {
+            fileRef.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    Log.d("Message", taskSnapshot.toString());
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Log.d("ERROR", e.toString());
+                }
+            });
+        } else {
+            Toast.makeText(editDogActivity.this, "Dog Image missing, Please try it again", Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 
     // Upload Image Functions

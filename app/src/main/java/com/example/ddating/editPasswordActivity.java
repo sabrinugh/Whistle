@@ -45,25 +45,31 @@ public class editPasswordActivity extends AppCompatActivity {
                 // Get new Password
                 String txt_newPassword1 = newPassword1.getText().toString();
 
-                // Update new Password
-                currentUser.updatePassword(txt_newPassword1).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(editPasswordActivity.this, "Password Changed", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(editPasswordActivity.this, settinPage.class));
-                            finish();
-                        } else {
-                            Toast.makeText(editPasswordActivity.this, "Failed to change", Toast.LENGTH_SHORT).show();
+                if (txt_newPassword1.isEmpty()) {
+                    Toast.makeText(editPasswordActivity.this, "Can't enter empty password", Toast.LENGTH_SHORT).show();
+                } else if (txt_newPassword1.length() < 6) {
+                    Toast.makeText(editPasswordActivity.this, "New password is too short", Toast.LENGTH_SHORT).show();
+                } else {
+                    // Update new Password
+                    currentUser.updatePassword(txt_newPassword1).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(editPasswordActivity.this, "Password Changed", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(editPasswordActivity.this, settinPage.class));
+                                finish();
+                            } else {
+                                Toast.makeText(editPasswordActivity.this, "Failed to change", Toast.LENGTH_SHORT).show();
+                            }
                         }
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(editPasswordActivity.this, "Unable to connect to Database", Toast.LENGTH_SHORT).show();
-                        Log.d("ERROR", e.toString());
-                    }
-                });
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(editPasswordActivity.this, "Unable to connect to Database", Toast.LENGTH_SHORT).show();
+                            Log.d("ERROR", e.toString());
+                        }
+                    });
+                }
 
             }
         });
