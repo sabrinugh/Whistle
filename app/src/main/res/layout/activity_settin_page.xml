@@ -5,6 +5,12 @@
     android:layout_height="match_parent"
     android:background="@drawable/background">
 
+    <Button
+        android:id="@+id/backbtn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/leftarrow" />
+
     <TextView
         android:id="@+id/userID"
         android:layout_width="wrap_content"
@@ -44,7 +50,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
         android:layout_marginTop="16dp"
-        android:text="Edit Dog Profile"
+        android:text="View Dog Profiles"
         android:background="@drawable/roundbutton"/>
 
     <Button

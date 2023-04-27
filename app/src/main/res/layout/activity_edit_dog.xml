@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
+        android:fontFamily="serif"
         android:text="Edit Dog Profile"
         android:textAlignment="center"
         android:textSize="24dp" />
@@ -48,11 +49,14 @@
 
     <EditText
         android:id="@+id/dogName"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/txt_DogName"
         android:hint="Dog Name"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:layout_width="300dp"
+        android:layout_centerHorizontal="true"/>
 
     <TextView
         android:id="@+id/txt_DogType"
@@ -66,11 +70,14 @@
 
     <EditText
         android:id="@+id/dogType"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/txt_DogType"
         android:hint="Dog Type"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:layout_width="300dp"
+        android:layout_centerHorizontal="true"/>
 
     <TextView
         android:id="@+id/txt_DogGender"
@@ -84,11 +91,14 @@
 
     <EditText
         android:id="@+id/gender"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/txt_DogGender"
         android:hint="Gender"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:layout_width="300dp"
+        android:layout_centerHorizontal="true"/>
 
 
     <TextView
@@ -103,11 +113,14 @@
 
     <EditText
         android:id="@+id/age"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/txt_DogAge"
         android:hint="Age"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:layout_width="300dp"
+        android:layout_centerHorizontal="true"/>
 
     <Button
         android:id="@+id/editDog"
@@ -117,7 +130,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="10dp"
         android:background="@drawable/roundbutton"
-        android:text="Edit Dog Profile" />
+        android:text="Confirm" />
 
     <Button
         android:id="@+id/deleteDog"
@@ -128,6 +141,12 @@
         android:layout_marginBottom="25dp"
         android:background="@drawable/roundbutton"
         android:text="Delete Dog" />
+
+    <Button
+        android:id="@+id/backbtn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/leftarrow" />
 
 
 </RelativeLayout>

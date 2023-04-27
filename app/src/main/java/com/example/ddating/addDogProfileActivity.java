@@ -40,6 +40,7 @@ public class addDogProfileActivity extends AppCompatActivity {
     private Button addDog;
     private Button addImage;
     private ImageView image;
+    private Button backbtn;
 
     private Uri imageUri;
 
@@ -63,6 +64,7 @@ public class addDogProfileActivity extends AppCompatActivity {
         addDog = findViewById(R.id.addDog);
         addImage = findViewById(R.id.addImage);
         image = findViewById(R.id.image);
+        backbtn = findViewById(R.id.backbtn);
 
 
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
@@ -73,6 +75,12 @@ public class addDogProfileActivity extends AppCompatActivity {
         // irebaseStorage storage = FirebaseStorage.getInstance();
 
         // Variable
+        backbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         addImage.setOnClickListener(new View.OnClickListener() {
             @Override

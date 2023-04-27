@@ -38,6 +38,7 @@ import java.util.List;
 public class listDogProfileActivity extends AppCompatActivity {
 
     private Button addDog;
+    private Button backbtn;
 
     private ListView listDog;
     private List<String> list_dogID = new ArrayList<String>();
@@ -54,6 +55,7 @@ public class listDogProfileActivity extends AppCompatActivity {
         // Variable
 
         addDog = findViewById(R.id.addDog);
+        backbtn = findViewById(R.id.backbtn);
 
         Boolean dataGet = false;
         listDog = findViewById(R.id.listDog);
@@ -63,6 +65,12 @@ public class listDogProfileActivity extends AppCompatActivity {
         // Get Dog Data
         getDogProfiles();
 
+        backbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         // Click the List View
         clickDogProfile();
 

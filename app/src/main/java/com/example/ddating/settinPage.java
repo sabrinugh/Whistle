@@ -43,6 +43,7 @@ public class settinPage extends AppCompatActivity {
 
     private Button logOut;
     private Button deleteAccount;
+    private Button backbtn;
 
 
     @Override
@@ -57,6 +58,7 @@ public class settinPage extends AppCompatActivity {
         editPassword = findViewById(R.id.editPassword);
         editUserPassword = findViewById(R.id.editUserProfile);
         editDogProfile = findViewById(R.id.editDogProfile);
+        backbtn = findViewById(R.id.backbtn);
 
         logOut = findViewById(R.id.logOut);
         deleteAccount = findViewById(R.id.deleteAccount);
@@ -71,6 +73,13 @@ public class settinPage extends AppCompatActivity {
 
         // Get Image
         // getImage();
+
+        backbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         // editPasswordActivity Activity
         editPassword.setOnClickListener(new View.OnClickListener() {

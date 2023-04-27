@@ -29,6 +29,7 @@ public class editUserActivity extends AppCompatActivity {
     private EditText editUserGender;
     private EditText editUserAge;
     private Button editUserBotton;
+    private Button backbtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +41,16 @@ public class editUserActivity extends AppCompatActivity {
         editUserGender = findViewById(R.id.editUserGender);
         editUserAge = findViewById(R.id.editUserAge);
         editUserBotton = findViewById(R.id.editUserButton);
+        backbtn = findViewById(R.id.backbtn);
 
         // Variable
 
+        backbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         // Get User profile
         GetUserProfile();
 

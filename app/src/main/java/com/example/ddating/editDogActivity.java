@@ -48,6 +48,7 @@ public class editDogActivity extends AppCompatActivity {
     private Button editDog;
     private Button editImage;
     private Button deleteDog;
+    private Button backbtn;
 
     private Uri imageUri;
     private static final int IMAGE_REQUEST = 2;
@@ -63,6 +64,8 @@ public class editDogActivity extends AppCompatActivity {
         dogType = findViewById(R.id.dogType);
         gender = findViewById(R.id.gender);
         age = findViewById(R.id.age);
+        backbtn = findViewById(R.id.backbtn);
+
 
         image = findViewById(R.id.image);
 
@@ -108,6 +111,13 @@ public class editDogActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 deleteDogProfile(currentDogID, dogImageURI);
+            }
+        });
+
+        backbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
 

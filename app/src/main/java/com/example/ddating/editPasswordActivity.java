@@ -23,6 +23,7 @@ public class editPasswordActivity extends AppCompatActivity {
     private TextView title;
     private EditText newPassword1;
     private Button submitPassword;
+    private Button backbtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,19 +32,26 @@ public class editPasswordActivity extends AppCompatActivity {
 
         // Variable
         title = findViewById(R.id.title);
+        backbtn = findViewById(R.id.backbtn);
         newPassword1 = findViewById(R.id.newPassword1);
         submitPassword = findViewById(R.id.submitPassword);
 
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
         // Variable
-
+        backbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         // Change password
         submitPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Get new Password
                 String txt_newPassword1 = newPassword1.getText().toString();
+
 
                 if (txt_newPassword1.isEmpty()) {
                     Toast.makeText(editPasswordActivity.this, "Can't enter empty password", Toast.LENGTH_SHORT).show();

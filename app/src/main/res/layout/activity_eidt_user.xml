@@ -15,6 +15,11 @@
         android:text="Edit User Profile"
         android:textAlignment="center"
         android:textSize="24sp" />
+    <Button
+        android:id="@+id/backbtn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/leftarrow" />
 
     <EditText
         android:id="@+id/editUserName"
