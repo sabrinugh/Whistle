@@ -1,18 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!--on below line we are creating a swipe
+        frame layout for providing a swipe action-->
+    <com.daprlabs.cardstack.SwipeFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!--below widget is used for creating a swipe deck-->
+        <!--in below widget card spacing is the spacing between cards
+            max visible is the max number of cards which are visible
+            render above is to render the cards
+            rotation degree is the angle of card rotation when card is swiped-->
+        <com.daprlabs.cardstack.SwipeDeck
+            android:id="@+id/swipe_deck"
+            android:layout_width="match_parent"
+            android:layout_height="480dp"
+            android:padding="20dp"
+            app:card_spacing="10dp"
+            app:max_visible="3"
+            app:render_above="true"
+            app:rotation_degrees="15"
+            android:layout_marginTop="100dp"/>
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_marginTop="-100dp"
+            android:layout_marginLeft="55dp"
+            app:srcCompat="@drawable/whistlewriting" />
+
+    </com.daprlabs.cardstack.SwipeFrameLayout>
+
+    <Button
+        android:id="@+id/setting"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/roundbutton"
+        android:text="My Account" />
+
+
+</RelativeLayout>
