@@ -12,8 +12,10 @@
       android:layout_height="wrap_content"
       android:layout_centerHorizontal="true"
       android:layout_marginTop="10dp"
-      android:text="Add Dog Profile"
-      android:textSize="24dp" />
+      android:fontFamily="serif"
+      android:text="Add Another Dog"
+      android:textSize="24dp"
+      android:textStyle="italic" />
 
   <Button
       android:id="@+id/backbtn"
