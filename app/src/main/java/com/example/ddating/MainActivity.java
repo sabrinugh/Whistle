@@ -89,10 +89,6 @@ public class MainActivity extends AppCompatActivity {
 
         // on below line we are adding data to our array list.
         courseModalArrayList.add(new CourseModal(null, null, null, null, null));
-//        courseModalArrayList.add(new CourseModal("Java", "30 days", "20 Tracks", "Java Self Paced Course", R.drawable.uh));
-//        courseModalArrayList.add(new CourseModal("Python", "30 days", "20 Tracks", "Python Self Paced Course", R.drawable.patrick));
-//        courseModalArrayList.add(new CourseModal("DSA", "30 days", "20 Tracks", "DSA Self Paced Course", R.drawable.zoran));
-//
 
         // Get all Dog Data
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
