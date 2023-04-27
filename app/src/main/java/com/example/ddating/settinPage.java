@@ -217,6 +217,7 @@ public class settinPage extends AppCompatActivity {
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
 
                 String txt_newUserName = task.getResult().getString("userName");
+                txt_newUserName = "Welcome Back " + txt_newUserName;
 
                 userID.setText(txt_newUserName);
             }
