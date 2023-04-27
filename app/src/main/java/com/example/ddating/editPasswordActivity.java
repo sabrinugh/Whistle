@@ -64,7 +64,7 @@ public class editPasswordActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
                                 Toast.makeText(editPasswordActivity.this, "Password Changed", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(editPasswordActivity.this, settinPage.class));
+//                                startActivity(new Intent(editPasswordActivity.this, settinPage.class));
                                 finish();
                             } else {
                                 Toast.makeText(editPasswordActivity.this, "Failed to change", Toast.LENGTH_SHORT).show();
@@ -82,7 +82,6 @@ public class editPasswordActivity extends AppCompatActivity {
             }
         });
         // End Change Password
-
 
     }
 }

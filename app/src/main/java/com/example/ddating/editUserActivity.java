@@ -107,7 +107,7 @@ public class editUserActivity extends AppCompatActivity {
                         Log.d("Message", "Data Uploaded");
 
                         // Back to Setting Activity
-                        startActivity(new Intent(editUserActivity.this, settinPage.class));
+//                        startActivity(new Intent(editUserActivity.this, settinPage.class));
                         finish();
                     } else {
                         Toast.makeText(editUserActivity.this, "Failed to Upload", Toast.LENGTH_SHORT).show();

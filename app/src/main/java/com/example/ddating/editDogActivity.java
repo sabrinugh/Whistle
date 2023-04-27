@@ -228,7 +228,7 @@ public class editDogActivity extends AppCompatActivity {
                         }
 
                         // Back To Main Activity
-                        startActivity(new Intent(editDogActivity.this, MainActivity.class));
+//                        startActivity(new Intent(editDogActivity.this, MainActivity.class));
                         finish();
                     } else {
                         Toast.makeText(editDogActivity.this, "Failed to Upload", Toast.LENGTH_SHORT).show();
