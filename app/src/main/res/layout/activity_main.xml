@@ -33,47 +33,31 @@
             swipedeck:card_spacing="10dp"
             swipedeck:max_visible="3"
             swipedeck:render_above="true"
-            swipedeck:rotation_degrees="15" />
+            swipedeck:rotation_degrees="15"
+            android:layout_marginTop="100dp"/>
 
     </com.daprlabs.cardstack.SwipeFrameLayout>
 
     <Button
         android:id="@+id/setting"
-        android:layout_width="200dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="50dp"
         android:background="@drawable/roundbutton"
-        android:text="Settings" />
+        android:text="My Account" />
 
 
-    <!--    <ImageView-->
-    <!--        android:layout_width="150dp"-->
-    <!--        android:layout_height="150dp"-->
-    <!--        android:layout_centerHorizontal="true"-->
-    <!--        android:layout_marginTop="10dp"-->
-    <!--        android:id="@+id/dogImage"/>-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:fontFamily="serif"
+        android:text="Whistle"
+        android:textSize="40dp" />
 
-    <!--    <Button-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:id="@+id/logout"-->
-    <!--        android:text="Log Out"-->
-    <!--        android:layout_marginEnd="10dp"-->
-    <!--        android:layout_marginBottom="10dp"-->
-    <!--        android:layout_centerHorizontal="true"-->
-    <!--        android:layout_above="@+id/delete"/>-->
-
-    <!--    <Button-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:id="@+id/delete"-->
-    <!--        android:text="Delete Account"-->
-    <!--        android:layout_alignParentBottom="true"-->
-    <!--        android:layout_marginEnd="10dp"-->
-    <!--        android:layout_marginBottom="10dp"-->
-    <!--        android:layout_centerHorizontal="true"/>-->
 
 
 </RelativeLayout>

@@ -13,6 +13,7 @@
         android:layout_margin="3dp"
         android:orientation="vertical">
 
+
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -22,84 +23,67 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-
                 <ImageView
                     android:id="@+id/DogImage"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentBottom="true"
                     android:scaleType="centerCrop" />
 
                 <TextView
                     android:id="@+id/DogName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="161dp"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="452dp"
-                    android:layout_marginEnd="159dp"
-                    android:background="@drawable/roundbutton"
-                    android:padding="5dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="350dp"
                     android:text="Name"
                     android:textAlignment="center"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="24dp" />
 
-                <TextView
-                    android:id="@+id/DogBreed"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="57dp"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="504dp"
-                    android:layout_marginEnd="290dp"
-                    android:padding="5dp"
-                    android:text="Breed"
-                    android:textAlignment="center"
-                    android:textColor="@color/black" />
-
-                <TextView
-                    android:id="@+id/DogAge"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="297dp"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="503dp"
-                    android:layout_marginEnd="63dp"
-                    android:layout_marginBottom="32dp"
-                    android:padding="5dp"
-                    android:text="Age"
-                    android:textAlignment="center"
-                    android:textColor="@color/black" />
 
                 <TextView
                     android:id="@+id/DogGender"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="171dp"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="503dp"
-                    android:layout_marginEnd="168dp"
-                    android:layout_marginBottom="446dp"
-                    android:padding="5dp"
+                    android:layout_below="@id/DogName"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="35dp"
+                    android:minWidth="50dp"
+                    android:maxWidth="70dp"
                     android:text="Gender"
                     android:textAlignment="center"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/DogBreed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/DogName"
+                    android:layout_marginLeft="170dp"
+                    android:layout_marginTop="15dp"
+                    android:minWidth="50dp"
+                    android:maxWidth="70dp"
+                    android:text="Breed"
+                    android:textAlignment="center"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/DogAge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/DogName"
+                    android:layout_marginLeft="280dp"
+                    android:layout_marginTop="15dp"
+                    android:minWidth="50dp"
+                    android:maxWidth="70dp"
+                    android:text="Age"
+                    android:textAlignment="center"
+                    android:textColor="@color/white" />
 
             </RelativeLayout>
+
         </androidx.cardview.widget.CardView>
+
     </LinearLayout>
+
 </androidx.cardview.widget.CardView>
