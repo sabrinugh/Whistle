@@ -15,11 +15,11 @@
         android:text="Add Dog Profile"
         android:textSize="24dp" />
 
-    <Button
-        android:id="@+id/backbtn"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/leftarrow" />
+<!--    <Button-->
+<!--        android:id="@+id/backbtn"-->
+<!--        android:layout_width="50dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:background="@drawable/leftarrow" />-->
 
     <ImageView
         android:id="@+id/image"

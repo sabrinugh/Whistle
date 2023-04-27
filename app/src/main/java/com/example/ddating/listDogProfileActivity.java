@@ -78,8 +78,8 @@ public class listDogProfileActivity extends AppCompatActivity {
         addDog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(listDogProfileActivity.this, addDogProfileActivity.class));
-                finish();
+                startActivity(new Intent(listDogProfileActivity.this, addDogProfileActivity2.class));
+//                finish();
             }
         });
 

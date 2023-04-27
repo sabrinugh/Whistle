@@ -1,5 +1,6 @@
 package com.example.ddating;
 
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,7 +32,8 @@ import java.io.InputStream;
 import java.util.Date;
 import java.util.HashMap;
 
-public class addDogProfileActivity extends AppCompatActivity {
+
+public class addDogProfileActivity2 extends AppCompatActivity {
 
     private EditText dogName;
     private EditText dogType;
@@ -40,7 +42,7 @@ public class addDogProfileActivity extends AppCompatActivity {
     private Button addDog;
     private Button addImage;
     private ImageView image;
-//    private Button backbtn;
+    private Button backbtn;
 
     private Uri imageUri;
 
@@ -54,7 +56,7 @@ public class addDogProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_dog_profile);
+        setContentView(R.layout.activity_add_dog_profile2);
 
         // Variable
         dogName = findViewById(R.id.dogName);
@@ -64,7 +66,7 @@ public class addDogProfileActivity extends AppCompatActivity {
         addDog = findViewById(R.id.addDog);
         addImage = findViewById(R.id.addImage);
         image = findViewById(R.id.image);
-//        backbtn = findViewById(R.id.backbtn);
+        backbtn = findViewById(R.id.backbtn);
 
 
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
@@ -75,12 +77,12 @@ public class addDogProfileActivity extends AppCompatActivity {
         // irebaseStorage storage = FirebaseStorage.getInstance();
 
         // Variable
-//        backbtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                finish();
-//            }
-//        });
+        backbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         addImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -144,7 +146,7 @@ public class addDogProfileActivity extends AppCompatActivity {
                 // Store Data
 
                 if (imageUri == null) {
-                    Toast.makeText(addDogProfileActivity.this, "Can't missing Image ! ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(addDogProfileActivity2.this, "Can't missing Image ! ", Toast.LENGTH_SHORT).show();
                 } else {
                     if (upLoadData(date.toString())) {
                         fileRef.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -152,9 +154,9 @@ public class addDogProfileActivity extends AppCompatActivity {
                             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                                 Log.d("Message", taskSnapshot.toString());
 
-                                Toast.makeText(addDogProfileActivity.this, "Dog Added !", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(addDogProfileActivity2.this, "Dog Added !", Toast.LENGTH_SHORT).show();
 
-                                startActivity(new Intent(addDogProfileActivity.this, MainActivity.class));
+                                startActivity(new Intent(addDogProfileActivity2.this, MainActivity.class));
                                 finish();
                             }
                         }).addOnFailureListener(new OnFailureListener() {
@@ -187,7 +189,7 @@ public class addDogProfileActivity extends AppCompatActivity {
         String txt_dogImageURI = "DogImages/" + StorageSize;
 
         if (txt_dogName.isEmpty() || txt_dogType.isEmpty() || txt_gender.isEmpty() || txt_age.isEmpty()) {
-            Toast.makeText(addDogProfileActivity.this, "Can't missing any input !", Toast.LENGTH_SHORT).show();
+            Toast.makeText(addDogProfileActivity2.this, "Can't missing any input !", Toast.LENGTH_SHORT).show();
             upLoadData_b = false;
             return false;
         }  else {
@@ -195,17 +197,17 @@ public class addDogProfileActivity extends AppCompatActivity {
                 int number = Integer.parseInt(txt_age);
 
                 if (number < 0) {
-                    Toast.makeText(addDogProfileActivity.this, "Age at least 0", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(addDogProfileActivity2.this, "Age at least 0", Toast.LENGTH_SHORT).show();
                     upLoadData_b = false;
                     return false;
                 } else if (number > 50) {
-                    Toast.makeText(addDogProfileActivity.this, "How can your dog survive over 50 years", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(addDogProfileActivity2.this, "How can your dog survive over 50 years", Toast.LENGTH_SHORT).show();
                     upLoadData_b = false;
                     return false;
                 }
             } catch (NumberFormatException e) {
                 e.printStackTrace();
-                Toast.makeText(addDogProfileActivity.this, "Integer Only in Age", Toast.LENGTH_SHORT).show();
+                Toast.makeText(addDogProfileActivity2.this, "Integer Only in Age", Toast.LENGTH_SHORT).show();
                 upLoadData_b = false;
                 return false;
             }
